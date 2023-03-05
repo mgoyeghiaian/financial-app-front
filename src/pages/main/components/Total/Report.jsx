@@ -2,10 +2,11 @@ import React from 'react'
 
 const Report = () => {
   return (
-    <div>
-         <h1>Report Total</h1>
+    <div className='total-report-body'>
+      <div className='total-report-card'>
+        <h1>Total Report</h1>
+      </div>
     </div>
-
   )
 }
 

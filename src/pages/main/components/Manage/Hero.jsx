@@ -2,8 +2,10 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div>
-      <h1>Hero Manage</h1>
+    <div className='manage-hero-body'>
+      <div className='manage-hero-card'>
+        <h1>Hero </h1>
+      </div>
     </div>
   )
 }

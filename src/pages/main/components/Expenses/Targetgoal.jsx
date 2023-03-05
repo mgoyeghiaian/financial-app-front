@@ -1,10 +1,12 @@
 import React from 'react'
-
+import ".//Expenses.css"
 const Targetgoal = () => {
   return (
-    <div><h1>
-      Target Goal ex
-    </h1></div>
+    <div className='ex-tg-body'>
+      <div className='ex-tg-card'>
+        <h1>Target Goal</h1>
+      </div>
+    </div>
   )
 }
 

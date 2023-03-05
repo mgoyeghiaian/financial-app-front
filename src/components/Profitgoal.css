@@ -1,4 +1,29 @@
 .profit-main{
   width: 250px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 100% 100% 100%;
 }
 
+.profit-card{
+  display: flex;
+  flex-direction: column;
+background-color: #ffffffad;
+width: 255px;
+height: 218px;
+  margin-top: 15px;
+  margin-left: 30px;
+  border-radius: 35px;
+}
+
+.profit-card img{
+  margin-top: 24px;
+  margin-bottom: 10px;
+  width: 80px;
+}
+
+.profit-card p{
+  margin-top: 0;
+margin-left: 5px;
+font-size: 18px;
+}

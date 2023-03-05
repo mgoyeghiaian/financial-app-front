@@ -1,8 +1,11 @@
 import React from 'react'
 import "./Navbar.css"
 import logo from "../assets/Logo.png"
+import { IoApps } from "react-icons/io5";
 import { Link, NavLink } from 'react-router-dom'
-
+import { TfiBarChartAlt, TfiBarChart, TfiPencilAlt } from "react-icons/tfi"
+import { SlChart } from "react-icons/sl"
+import { MdManageAccounts } from "react-icons/md"
 const Navbar = () => {
   return (
     <>
@@ -17,11 +20,11 @@ const Navbar = () => {
           <h2>Manage</h2>
           <div className='nav-manage-list'>
             <ul>
-              <li><NavLink to="/home">Home</NavLink ></li>
-              <li><NavLink to="/income">Income</NavLink ></li>
-              <li><NavLink to="/expenses">Expenses</NavLink ></li>
-              <li><NavLink to="/total">Total</NavLink ></li>
-              <li><NavLink to="/manage">Manage</NavLink ></li>
+              <li>  <NavLink to="/home"> <IoApps />   Home</NavLink ></li>
+              <li><NavLink to="/income"> <TfiBarChartAlt />Income</NavLink ></li>
+              <li><NavLink to="/expenses"> <TfiBarChart />Expenses</NavLink ></li>
+              <li><NavLink to="/total"> <SlChart />Total</NavLink ></li>
+              <li><NavLink to="/manage"><TfiPencilAlt />Manage</NavLink ></li>
             </ul>
           </div>
         </div>
@@ -30,8 +33,8 @@ const Navbar = () => {
           <h2>Preferences</h2>
           <div className='nav-preferences-list'>
             <ul>
-              <li><button to="/home">Theme</button ></li>
-              <li><NavLink to="/users">Users</NavLink ></li>
+              <li><button>Theme</button></li>
+              <li><NavLink to="/users"><MdManageAccounts /> Users</NavLink ></li>
             </ul>
           </div>
         </div>

@@ -2,8 +2,10 @@ import React from 'react'
 
 const Targetgoal = () => {
   return (
-    <div>
-      <h1>Targetgoal Manage</h1>
+    <div className='manage-tg-body'>
+      <div className='manage-tg-card'>
+        <h1>Target Goal</h1>
+      </div>
     </div>
   )
 }

@@ -2,8 +2,10 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div>
-      <h1>Hero Total</h1>
+    <div className='total-hero-body'>
+      <div className='total-hero-card'>
+        <h1>Hero </h1>
+      </div>
     </div>
   )
 }

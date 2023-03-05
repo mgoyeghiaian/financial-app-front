@@ -12,11 +12,15 @@ const Income = () => {
         <div className='income-left'>
           <Navbar />
         </div>
+        <div className='income-middle'>
+          <div><Profitgoal /></div>
+          <div><Hero /></div>
+        </div>
         <div className='income-right'>
-          <section><Profitgoal /></section>
-          <section><Hero /></section>
-          <section><Report /></section>
-          <section><Targetgoal /></section>
+          <div><Targetgoal /></div>
+        </div>
+        <div className='income-report'>
+          <Report />
         </div>
       </div>
     </>

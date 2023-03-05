@@ -14,11 +14,15 @@ const Manage = () => {
         <div className='manage-left'>
           <Navbar />
         </div>
+        <div className='manage-middle'>
+          <div><Profitgoal /></div>
+          <div><Hero /></div>
+        </div>
         <div className='manage-right'>
-          <section><Profitgoal /></section>
-          <section><Hero /></section>
-          <section><Report /></section>
-          <section><Targetgoal /></section>
+          <div><Targetgoal /></div>
+        </div>
+        <div className='manage-report'>
+          <Report />
         </div>
       </div>
     </>

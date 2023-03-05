@@ -2,10 +2,10 @@ import React from 'react'
 
 const Report = () => {
   return (
-    <div>
-     <h1>
-        Report income
-      </h1>
+    <div className='in-report-body'>
+      <div className='in-report-card'>
+        <h1>Income Report</h1>
+      </div>
     </div>
   )
 }

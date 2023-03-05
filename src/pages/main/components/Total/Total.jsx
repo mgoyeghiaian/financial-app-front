@@ -14,11 +14,15 @@ const Total = () => {
         <div className='total-left'>
           <Navbar />
         </div>
+        <div className='total-middle'>
+          <div><Profitgoal /></div>
+          <div><Hero /></div>
+        </div>
         <div className='total-right'>
-          <section><Profitgoal /></section>
-          <section><Hero /></section>
-          <section><Report /></section>
-          <section><Targetgoal /></section>
+          <div><Targetgoal /></div>
+        </div>
+        <div className='total-report'>
+          <Report />
         </div>
       </div>
     </>
