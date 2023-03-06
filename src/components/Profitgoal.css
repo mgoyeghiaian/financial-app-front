@@ -1,29 +1,32 @@
 .profit-main{
-  width: 250px;
   display: grid;
-  gap: 25px;
-  grid-template-columns: 100% 100% 100%;
+  grid-template-columns: 34% 34% 34%;
 }
 
 .profit-card{
   display: flex;
   flex-direction: column;
-background-color: #ffffffad;
-width: 255px;
-height: 218px;
-  margin-top: 15px;
-  margin-left: 30px;
+  background-color: #ffffffad;
+  width: 94%;
   border-radius: 35px;
+  align-items: center;
 }
 
+.profit-card div {
+  width: 85%;
+}
+
+.profit-card p {
+  margin-top: 0;
+  font-size: 1vw;
+margin-left: 5px;}
+
+.profit-card h2 {
+margin-left: 5px;  font-weight: bold;
+  font-size: 1.2vw;
+}
 .profit-card img{
   margin-top: 24px;
   margin-bottom: 10px;
-  width: 80px;
-}
-
-.profit-card p{
-  margin-top: 0;
-margin-left: 5px;
-font-size: 18px;
+  width: 27%;
 }

@@ -12,14 +12,7 @@ const Expenses = () => {
       <div className='expenses-left'>
         <Navbar />
       </div>
-      <div className='expenses-middle'>
-        <div><Profitgoal /></div>
-        <div><Hero /></div>
-      </div>
       <div className='expenses-right'>
-        <div><Targetgoal /></div>
-      </div>
-      <div className='expenses-report'>
         <Report />
       </div>
     </div>

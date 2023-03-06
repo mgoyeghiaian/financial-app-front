@@ -5,7 +5,6 @@ import Expenses from './pages/main/components/Expenses/Expenses';
 import Home from './pages/main/components/Home/Home';
 import Income from './pages/main/components/Income/Income';
 import Total from './pages/main/components/Total/Total';
-import Manage from './pages/main/components/Manage/Manage';
 import Users from "./pages/users/Users"
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
         <Route path='income' element={<Income />} />
         <Route path='expenses' element={<Expenses />} />
         <Route path='total' element={<Total />} />
-        <Route path='manage' element={<Manage />} />
         <Route path='users' element={<Users />} />
       </Routes>
     </BrowserRouter >

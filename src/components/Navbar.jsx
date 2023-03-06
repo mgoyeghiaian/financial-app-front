@@ -6,6 +6,8 @@ import { Link, NavLink } from 'react-router-dom'
 import { TfiBarChartAlt, TfiBarChart, TfiPencilAlt } from "react-icons/tfi"
 import { SlChart } from "react-icons/sl"
 import { MdManageAccounts } from "react-icons/md"
+const activePage = window.location
+console.log(activePage);
 const Navbar = () => {
   return (
     <>
@@ -20,11 +22,10 @@ const Navbar = () => {
           <h2>Manage</h2>
           <div className='nav-manage-list'>
             <ul>
-              <li>  <NavLink to="/home"> <IoApps />   Home</NavLink ></li>
+              <li><NavLink to="/home"> <IoApps />   Home</NavLink ></li>
               <li><NavLink to="/income"> <TfiBarChartAlt />Income</NavLink ></li>
               <li><NavLink to="/expenses"> <TfiBarChart />Expenses</NavLink ></li>
               <li><NavLink to="/total"> <SlChart />Total</NavLink ></li>
-              <li><NavLink to="/manage"><TfiPencilAlt />Manage</NavLink ></li>
             </ul>
           </div>
         </div>

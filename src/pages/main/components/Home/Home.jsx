@@ -14,11 +14,11 @@ const Home = () => {
           <Navbar />
         </div>
         <div className='home-middle'>
-          <div><Profitgoal /></div>
-          <div><Hero /></div>
+          <div className="home-mid-ch1"><Profitgoal /></div>
+          <div className="home-mid-ch2"><Hero /></div>
         </div>
         <div className='home-right'>
-          <div><Targetgoal /></div>
+          <Targetgoal />
         </div>
         <div className='home-report'>
           <Report />

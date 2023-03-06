@@ -1,5 +1,5 @@
 import React from 'react'
-import ".//Expenses.css"
+import "./Expenses.css"
 const Targetgoal = () => {
   return (
     <div className='ex-tg-body'>

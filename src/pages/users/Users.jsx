@@ -8,7 +8,11 @@ const Users = () => {
         <Navbar />
       </div>
       <div className='users-right'>
-        <h1>Users</h1>
+        <div className='users-report-body'>
+          <div className='users-report-card'>
+            <h1>Users</h1>
+          </div>
+        </div>
       </div>
     </div>
   )

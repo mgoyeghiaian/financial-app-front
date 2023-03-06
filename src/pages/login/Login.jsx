@@ -16,7 +16,6 @@ const Login = () => {
           Home
         </a>
       </div>
-
     </div>
   )
 }

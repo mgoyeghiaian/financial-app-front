@@ -4,7 +4,7 @@ const Pdata = [
   {
     img: Logob,
     type: "Total Balance",
-    amount: 78575,
+    amount: 7555575,
   },
   {
     img: Logow,

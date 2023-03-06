@@ -10,9 +10,11 @@ const Profitgoal = () => {
         Pdata.map((item, index) => {
           return (
             <div className='profit-card' key={index}>
-              <img src={item.img} alt="" />
-              <p> {item.type}</p>
-              <p>$ {item.amount}</p>
+              <div>
+                <img src={item.img} alt="" />
+                <h2> {item.type}</h2>
+                <p>$ {item.amount}</p>
+              </div>
             </div>
           )
 
