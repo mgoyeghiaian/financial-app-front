@@ -1,9 +1,7 @@
 .users-body{
   background-color: rgba(209, 201, 201, 0.536);
   display: grid;
-  grid-template-columns: 18% 80%;
-  grid-column-gap: 1.5%;
-  grid-row-gap: 2vh;
+  grid-template-columns: 18% 82%;
   min-height: 100vh;
 }
 
@@ -31,4 +29,44 @@ margin-top: 22px;
 .users-right {
   grid-column: 2;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.users-header,
+.users-main {
+    padding: 34px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.users-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30%;
+}
+
+.users-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.users-form input {
+  padding: 15px;
+}
+
+.usr-frm-sbmt {
+  width: 100%;
+  padding: 10px;
+}
+
+.users-main div {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

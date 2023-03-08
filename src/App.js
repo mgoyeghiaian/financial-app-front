@@ -12,6 +12,12 @@ function App() {
     const userToken = sessionStorage.getItem('userToken');
     return userToken; // This will return `true` if `userToken` is truthy
   }
+  
+  const useAdmin = () => {
+    const userType = sessionStorage.getItem('userType');
+    return userType === "1";
+  }
+
   return (
     <BrowserRouter>
       <Routes>
@@ -20,6 +26,8 @@ function App() {
           <Route path='home' element={<Home />} />
           <Route path='income' element={<Income />} />
           <Route path='expenses' element={<Expenses />} />
+        </Route>
+        <Route element={useAdmin() ? <Outlet/> : <Navigate to="/home"/>}>
           <Route path='users' element={<Users />} />
         </Route>
       </Routes> 
