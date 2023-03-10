@@ -10,7 +10,7 @@ import Users from "./pages/users/Users"
 function App() {
   const useAuth = () => {
     const userToken = sessionStorage.getItem('userToken');
-    return userToken; // This will return `true` if `userToken` is truthy
+    return userToken; 
   }
   
   const useAdmin = () => {

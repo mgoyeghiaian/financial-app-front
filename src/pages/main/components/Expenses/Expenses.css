@@ -5,6 +5,7 @@
   grid-column-gap: 1.5%;
   grid-row-gap: 2vh;
   min-height: 100vh;
+  color: var(--textlight);
 }
 
 .ex-report-body{
@@ -14,7 +15,7 @@
 .ex-report-card{
   width: 99%;
 margin-top: 22px; 
- background-color: #ffffff9c;
+ background-color: var(--lightgray);
   border-radius: 35px ;
   height: 100%;
 }

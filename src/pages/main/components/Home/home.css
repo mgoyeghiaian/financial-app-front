@@ -1,11 +1,16 @@
+ :root {
+   transition: all 0.5s ease;
+}
+
 .home-body{
-  background-color: rgba(209, 201, 201, 0.536);
+  background-color: var(--darkgray);
   display: grid;
   grid-template-rows: 25% 50% 21%;
   grid-template-columns: 18% 58% 20%;
   grid-column-gap: 1.5%;
   grid-row-gap: 2vh;
   min-height: 100vh;
+  color: var(--textlight);
 }
 
 .home-tg-body{
@@ -17,7 +22,7 @@
 }
 
 .home-tg-card{
-  background-color: #ffffffad;
+  background-color: var(--lightgray);
   width: 100%;
   border-radius: 35px;
 }
@@ -28,7 +33,7 @@
 
 .home-report-card{
   width: 100%;
-  background-color: #ffffffad;
+  background-color: var(--lightgray);
   border-radius: 35px 35px 0px 0px;
   min-height: 18.5vh;
 }
@@ -36,7 +41,7 @@
   height: 100%;
 }
 .home-hero-card{
-  background-color: #ffffffad;
+  background-color: var(--lightgray);
   border-radius: 35px;
   height: 100%;
 }

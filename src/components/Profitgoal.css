@@ -6,7 +6,7 @@
 .profit-card{
   display: flex;
   flex-direction: column;
-  background-color: #ffffffad;
+  background-color: var(--lightgray);
   width: 94%;
   border-radius: 35px;
   align-items: center;

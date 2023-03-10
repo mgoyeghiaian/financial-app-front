@@ -6,7 +6,6 @@ import Targetgoal from './Targetgoal'
 import "./home.css"
 import Profitgoal from '../../../../components/Profitgoal'
 
-
 const Home = () => {
   return (
     <>
@@ -28,6 +27,7 @@ const Home = () => {
     </>
   )
 }
+
 
 export default Home
 

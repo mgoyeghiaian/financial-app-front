@@ -10,6 +10,9 @@ const Users = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [editName, setEditName] = useState('');
+const [editEmail, setEditEmail] = useState('');
+const [editPassword, setEditPassword] = useState('');
 
   useEffect(() => {
     loadAdmins();
@@ -33,12 +36,11 @@ const Users = () => {
     await axios.delete(`http://localhost:8000/api/users/${id}`, config);
     loadAdmins();
   };
-
   const handleEdit = (admin) => {
     setSelectedAdmin(admin);
-    setName(admin.name);
-    setEmail(admin.email);
-    setPassword(admin.password);
+    setEditName(admin.name);
+    setEditEmail(admin.email);
+    setEditPassword(admin.password);
     setShowEdit(true);
   };
 
@@ -50,13 +52,13 @@ const Users = () => {
       },
     };
     await axios.put(`http://localhost:8000/api/users/${selectedAdmin.id}`, {
-      name,
-      email,
-      password,
+      name: editName,
+      email: editEmail,
+      password: editPassword,
     }, config);
-    setName('');
-    setEmail('');
-    setPassword('');
+    setEditName('');
+    setEditEmail('');
+    setEditPassword('');
     setSelectedAdmin({});
     setShowEdit(false);
     loadAdmins();
@@ -127,6 +129,7 @@ const Users = () => {
             </button>
           </form>
         </header>
+        <h2 className='users-h2'>Users</h2>
         <main className="users-main">
           {admin.map((admin, index) => (
             <div key={index}>
@@ -144,7 +147,7 @@ const Users = () => {
         </main>
         {showEdit && (
           <div className="edit-form">
-            <h2>Edit Admin</h2>
+            <h2>Edit User</h2>
             <form onSubmit={handleSave}>
               <div>
                 <label htmlFor="name">Name:</label>
@@ -153,8 +156,8 @@ const Users = () => {
                   id="name"
                   name="name"
                   required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={editName}
+                  onChange={(e) => setEditName(e.target.value)}
                 />
               </div>
               <div>
@@ -164,8 +167,8 @@ const Users = () => {
                   id="email"
                   name="email"
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={editEmail}
+                  onChange={(e) => setEditEmail(e.target.value)}
                 />
               </div>
               <div>
@@ -175,8 +178,8 @@ const Users = () => {
                   id="password" 
                   name="password" 
                   required 
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={editPassword}
+                  onChange={(e) => setEditPassword(e.target.value)}
                 />
               </div>
               <button type="submit">Save</button>
