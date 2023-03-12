@@ -36,11 +36,12 @@ margin-top: 22px;
 .users-header,
 .users-main {
     padding: 34px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--admlight);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: baseline;
+    color: var(--textlight);
 }
 
 .users-form {
@@ -119,6 +120,7 @@ margin-top: 22px;
   float: left;
   position: absolute;
   left: 50vw;
+  color: var(--textlight);
 }
 
 .users-main{

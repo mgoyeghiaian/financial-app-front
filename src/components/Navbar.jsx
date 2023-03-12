@@ -16,6 +16,7 @@ function changeTheme() {
     root.style.setProperty('--lightgray', 'white');
     root.style.setProperty('--darkgray', 'rgba(209, 201, 201, 0.536)');
     root.style.setProperty('--textlight', 'black');
+    root.style.setProperty('--admlight', 'rgba(209, 201, 201, 0.536)');
     root.style.setProperty('--transition', 'background-color 0.5s ease');
     localStorage.setItem('theme', 'light');
     setThemeOnLoad();
@@ -23,6 +24,7 @@ function changeTheme() {
     root.style.setProperty('--lightgray', 'black');
     root.style.setProperty('--darkgray', 'gray');
     root.style.setProperty('--textlight', 'white');
+    root.style.setProperty('--admlight', '#242424');
     root.style.setProperty('--transition', 'background-color 0.5s ease');
     localStorage.setItem('theme', 'dark');
     setThemeOnLoad();
@@ -36,11 +38,13 @@ function setThemeOnLoad() {
     root.style.setProperty('--lightgray', 'black');
     root.style.setProperty('--darkgray', 'gray');
     root.style.setProperty('--textlight', 'white');
+    root.style.setProperty('--admlight', '#242424');
     root.style.setProperty('--transition', 'background-color 0.5s ease');
   } else {
     root.style.setProperty('--lightgray', 'white');
     root.style.setProperty('--darkgray', 'rgba(209, 201, 201, 0.536)');
     root.style.setProperty('--textlight', 'black');
+    root.style.setProperty('--admlight', 'rgba(209, 201, 201, 0.536)');
     root.style.setProperty('--transition', 'background-color 0.5s ease');
   }
 }
@@ -86,4 +90,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;
