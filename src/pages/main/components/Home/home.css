@@ -20,8 +20,19 @@
   background-color: #ffffffad;
   width: 100%;
   border-radius: 35px;
+  display: flex;
+flex-direction: column;
+gap: 35px;
+align-items: center;
 }
 
+
+.home-tg-card h1{
+  font-size: 2vw}
+
+  .home-report-data p{
+    font-size: 1.2vw}
+  
 .home-report{
   grid-column: 2/4;
   grid-row: 3;}
@@ -31,6 +42,17 @@
   background-color: #ffffffad;
   border-radius: 35px 35px 0px 0px;
   min-height: 18.5vh;
+  display: flex;
+  flex-direction: column;
+}
+.home-report-data{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.home-report-data p{
+ font-weight: bolder;
 }
 .home-hero-body{
   height: 100%;
@@ -39,11 +61,10 @@
   background-color: #ffffffad;
   border-radius: 35px;
   height: 100%;
-}
-
-
-.home-hero-card h1 {
-  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .home-left {
@@ -75,4 +96,12 @@
 
 .home-r-ch {
   height: 100%;
+}
+.recharts-wrapper{
+  width: 50px;
+  height: 100px;
+}
+
+.Date{
+
 }

@@ -5,6 +5,7 @@ import { IoApps } from "react-icons/io5";
 import { Link, NavLink } from 'react-router-dom'
 import { TfiBarChartAlt, TfiBarChart, TfiPencilAlt } from "react-icons/tfi"
 import { SlChart } from "react-icons/sl"
+import PersonIcon from '@mui/icons-material/Person';
 import { MdManageAccounts } from "react-icons/md"
 const activePage = window.location
 console.log(activePage);
@@ -35,7 +36,7 @@ const Navbar = () => {
           <div className='nav-preferences-list'>
             <ul>
               <li><button>Theme</button></li>
-              <li><NavLink to="/users"><MdManageAccounts /> Users</NavLink ></li>
+              <li><NavLink to="/users"><PersonIcon /> Users</NavLink ></li>
             </ul>
           </div>
         </div>
