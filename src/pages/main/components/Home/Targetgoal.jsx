@@ -2,15 +2,16 @@ import React, { useEffect } from 'react';
 import './home.css';
 import { useState } from 'react';
 import axios from 'axios';
+import { YAxis } from 'recharts';
 
 const Targetgoal = () => {
   const [netProfit, setNetProfit] = useState('');
   const [isDeleted, setIsDeleted] = useState(false);
   const [data, setData] = useState([]);
   const [selectedYear, setSelectedYear] = useState('');
-  // const [totalProfit, setTotalProfit] = useState('');
-  // const [fixedProfit, setFixedProfit] = useState("");
-  // const [recurringProfit, setRecurringProfit] = useState("");
+  const [Fixeddata, setFixedData] = useState([]);
+
+  console.log(Fixeddata)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ const Targetgoal = () => {
         netprofit: netProfit,
         isdeleted: isDeleted,
       });
-      getGoal(selectedYear);
+      getProfityear(selectedYear);
       setNetProfit('');
       setIsDeleted(false);
     } catch (error) {
@@ -28,28 +29,27 @@ const Targetgoal = () => {
   };
 
 
-  // useEffect(() => {
-  //   fetch("http://localhost:8000/profitgoalf")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setFixedProfit(data[0].result);
-  //       setRecurringProfit(data[1].result);
-  //       setTotalProfit(Number(data[0].result) + Number(data[1].result));
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
-
-
-
-  const getGoal = async (year) => {
+  const getProfityear = async (year) => {
     const res = await axios.get(`http://127.0.0.1:8000/api/profitgoal?year=${year}`);
     const filteredData = res.data.message.filter((item) => item.year === year && item.isDeleted === 0);
     setData(filteredData);
   };
 
+  const getFixedyear = async (year) => {
+    const res = await axios.get(`http://127.0.0.1:8000/api/fixedf?year=${year}`);
+    const filteredFidexData = res.data;
+    setFixedData(filteredFidexData);
+  };
+
   useEffect(() => {
     if (selectedYear) {
-      getGoal(selectedYear);
+      getProfityear(selectedYear);
+    }
+  }, [selectedYear]);
+
+  useEffect(() => {
+    if (selectedYear) {
+      getFixedyear(selectedYear);
     }
   }, [selectedYear]);
 
@@ -68,38 +68,22 @@ const Targetgoal = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://127.0.0.1:8000/api/profitgoal/${id}`);
-      getGoal(selectedYear);
+      getProfityear(selectedYear);
     } catch (error) {
       console.error(error);
     }
   };
 
-
-
-
-  // useEffect(() => {
-  //   axios.get('http://localhost:8000/api/profitgoalf')
-  //     .then(response => {
-  //       setFixedProfit(response.data);
-  //       setRecurringProfit(response.data);
-  //       setTotalProfit(Number(response.data[0].FResults) + Number(response.data[1].RResults));
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //     });
-  // }, []);
-
-
-  console.log(data)
   return (
     <div className='home-tg-body'>
       <div className='home-tg-card'>
         <h1>Target Goal</h1>
         <form onSubmit={handleSubmit}>
-          <label htmlFor='net-profit-input'>Net Profit:</label>
+          <label htmlFor='net-profit-input'>Add Target Amount: </label>
+          <br />
           <input type='number' id='net-profit-input' value={netProfit} onChange={handleNetProfitChange} />
           <br />
-          <button type='submit'>Add Profit Goal</button>
+          <button type='submit'>Add</button>
         </form>
         <div>
           <label htmlFor='year-input'>Select Year:</label>
@@ -110,18 +94,27 @@ const Targetgoal = () => {
             <option value='2023'>2023</option>
           </select>
         </div>
-        {data.map((item, index) => (
-          <div key={index}>
-            <h3>Your Target Amount:</h3>
-            <p>${item.netProfit}</p>
-            <button type='button' onClick={() => handleDelete(item.id)}>
-              Delete
-            </button>
-          </div>
-        ))}
-        <div>
-          {/* <h3>Total Profit: ${totalProfit}</h3> */}
-        </div>
+
+        {selectedYear ? (
+          data.length ? (
+            data.map((item, index) => (
+              <div key={index}>
+                <h3>Target Amount: ${item.netProfit}</h3>
+                <p></p>
+                <h4>Total Profit: ${Fixeddata.total_amount}</h4>
+                <h4>Remaining Profit: ${item.netProfit - Fixeddata.total_amount}</h4>
+                <button type='button' onClick={() => handleDelete(item.id)}>
+                  Delete
+                </button>
+              </div>
+            ))
+          ) : (
+            <h4>No data found for the selected year.</h4>
+          )
+        )
+          : (
+            <h4>Please select a year to see the data.</h4>
+          )}
       </div>
     </div>
   );
