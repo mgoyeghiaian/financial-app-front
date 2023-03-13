@@ -100,6 +100,7 @@ const Chart = () => {
             <Bar dataKey="expense" fill="red" radius={8} />
             <Bar dataKey="result" fill="blue" radius={8} />
             <Legend />
+
           </BarChart>
         </ResponsiveContainer>
       ) : (
