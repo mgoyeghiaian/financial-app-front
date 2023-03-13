@@ -19,12 +19,16 @@ const Profitgoal = () => {
     return <div>Loading...</div>;
   }
 
-  const fixedIncome = parseInt(data[0].FIncome);
-  const fixedExpenses = parseInt(data[0].FExpenses);
-
-  const totalProfit = fixedIncome - fixedExpenses;
-
-  console.log(totalProfit)
+  const fixedIncome = parseInt(data[1].FIncome);
+  const fixedExpenses = parseInt(data[1].FExpenses);
+  const fixedtotal = fixedIncome - fixedExpenses
+  const recurringIncome = parseInt(data[0].RIncome);
+  const recurringExpenses = parseInt(data[0].RExpenses);
+  const recurringtotal = recurringIncome - recurringExpenses
+  const totalProfit = fixedtotal + recurringtotal;
+  const Incometotal = fixedIncome + recurringIncome;
+  const expensestotal = fixedExpenses + recurringExpenses;
+  console.log(data)
   return (
     <div className='profit-main'>
       <div className='profit-card'>
@@ -35,13 +39,13 @@ const Profitgoal = () => {
       <div className='profit-card2'>
         <img src={Logow} alt='' />
         <h2>Total Expenses</h2>
-        <p>$ {fixedExpenses}</p>
+        <p>$ {expensestotal}</p>
       </div>
 
       <div className='profit-card2'>
         <img src={Logow} alt='' />
         <h2>Total Income</h2>
-        <p> ${fixedIncome}</p>
+        <p> ${Incometotal}</p>
       </div>
     </div >
 
