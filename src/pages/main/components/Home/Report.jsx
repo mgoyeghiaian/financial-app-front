@@ -43,8 +43,8 @@ const Report = () => {
         {
           recurring.map((item, index) => (
             <div className='home-report-data' key={index}>
-              <p>{item.category}</p>
               <p>{item.type} </p>
+              <p>{item.category}</p>
               <p>{item.title} </p>
               <p>{item.amount}$ </p>
             </div>
