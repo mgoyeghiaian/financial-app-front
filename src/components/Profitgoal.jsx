@@ -47,7 +47,7 @@ const Profitgoal = () => {
         <h2>Total Income</h2>
         <p> ${Incometotal}</p>
       </div>
-    </div >
+    </div>
 
   );
 };

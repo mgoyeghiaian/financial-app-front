@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './home.css';
 import { useState } from 'react';
 import axios from 'axios';
-import { YAxis } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const Targetgoal = () => {
   const [netProfit, setNetProfit] = useState('');
@@ -10,8 +10,12 @@ const Targetgoal = () => {
   const [data, setData] = useState([]);
   const [selectedYear, setSelectedYear] = useState('');
   const [Fixeddata, setFixedData] = useState([]);
+  const [Recurringdata, setRecurringData] = useState([]);
 
-  console.log(Fixeddata)
+
+  // console.log(Recurringdata)
+  // console.log(Fixeddata)
+  console.log(data)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,15 +45,18 @@ const Targetgoal = () => {
     setFixedData(filteredFidexData);
   };
 
-  useEffect(() => {
-    if (selectedYear) {
-      getProfityear(selectedYear);
-    }
-  }, [selectedYear]);
+  const getRecurringyear = async (year) => {
+    const res = await axios.get(`http://127.0.0.1:8000/api/recurringf?year=${year}`);
+    const filteredRecurringData = res.data;
+    setRecurringData(filteredRecurringData);
+  };
+
 
   useEffect(() => {
     if (selectedYear) {
       getFixedyear(selectedYear);
+      getProfityear(selectedYear);
+      getRecurringyear(selectedYear);
     }
   }, [selectedYear]);
 
@@ -73,7 +80,8 @@ const Targetgoal = () => {
       console.error(error);
     }
   };
-
+  const total_amount = Fixeddata.total_amount + Recurringdata.total_amount;
+  console.log(total_amount)
   return (
     <div className='home-tg-body'>
       <div className='home-tg-card'>
@@ -83,10 +91,9 @@ const Targetgoal = () => {
           <br />
           <input type='number' id='net-profit-input' value={netProfit} onChange={handleNetProfitChange} />
           <br />
-          <button type='submit'>Add</button>
+          <button className='Target-B' type='submit'>Add</button>
         </form>
         <div>
-          <label htmlFor='year-input'>Select Year:</label>
           <select id='year-input' onChange={handleYearChange}>
             <option value=''>Select Year</option>
             <option value='2021'>2021</option>
@@ -94,19 +101,20 @@ const Targetgoal = () => {
             <option value='2023'>2023</option>
           </select>
         </div>
-
         {selectedYear ? (
           data.length ? (
             data.map((item, index) => (
               <div key={index}>
-                <h3>Target Amount: ${item.netProfit}</h3>
-                <p></p>
-                <h4>Total Profit: ${Fixeddata.total_amount}</h4>
-                <h4>Remaining Profit: ${item.netProfit - Fixeddata.total_amount}</h4>
-                <button type='button' onClick={() => handleDelete(item.id)}>
+
+                <h4>Target Amount: [${item.netProfit}]</h4>
+                <h4>Total Profit: [${total_amount}]</h4>
+                <h4>Remaining Profit: [${item.netProfit - total_amount}]</h4>
+                <button className='Target-B' type='button' onClick={() => handleDelete(item.id)}>
                   Delete
                 </button>
               </div>
+
+
             ))
           ) : (
             <h4>No data found for the selected year.</h4>
@@ -116,7 +124,7 @@ const Targetgoal = () => {
             <h4>Please select a year to see the data.</h4>
           )}
       </div>
-    </div>
+    </div >
   );
 };
 

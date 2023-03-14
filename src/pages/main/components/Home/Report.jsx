@@ -30,27 +30,28 @@ const Report = () => {
   return (
     <div className='home-report-body'>
       <div className='home-report-card'>
+        <h3>Report</h3>
         {fixedData.map((item, index) => (
-          <div key={index} className='home-report-data'>
-            <p>{item.type} </p>
-            <p>{item.title} </p>
-            <p>{item.amount}$ </p>
+          <div className='home-report-data' key={index}>
+            <p> {item.type} </p>
+            <p> {item.category}</p>
+            <p> {item.title} </p>
+            <p> {item.amount}$ </p>
           </div>
 
         ))}
         {
           recurring.map((item, index) => (
-            <div key={index} className='home-report-data'>
+            <div className='home-report-data' key={index}>
+              <p>{item.category}</p>
               <p>{item.type} </p>
               <p>{item.title} </p>
               <p>{item.amount}$ </p>
             </div>
           ))
         }
-
-
       </div>
-    </div >
+    </div>
 
   )
 }

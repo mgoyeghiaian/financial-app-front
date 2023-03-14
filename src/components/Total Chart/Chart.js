@@ -1,103 +1,77 @@
 import { useState, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, CartesianGrid } from 'recharts';
 import axios from 'axios';
 
 const Chart = () => {
   const [dataf, setDataf] = useState([]);
   const [datar, setDatar] = useState([]);
-  const [data, setData] = useState([]);
   const [selectedYear, setSelectedYear] = useState('');
 
-  // setData(dataf + datar);
-  // console.log(data);
   useEffect(() => {
-    axios.get('http://localhost:8000/api/fixed')
-      .then(response => setData(response.data.message))
-      .catch(error => {
+    const fetchData = async () => {
+      try {
+        const [fixedData, recurringData] = await Promise.all([
+          axios.get(`http://localhost:8000/api/fixed${selectedYear ? `?year=${selectedYear}` : ''}`),
+          axios.get(`http://localhost:8000/api/recurring${selectedYear ? `?year=${selectedYear}` : ''}`)
+        ]);
+        setDataf(fixedData.data.message);
+        setDatar(recurringData.data.message);
+      } catch (error) {
         console.error(error);
-      });
-  }, []);
-
-  // useEffect(() => {
-  //   axios.get('http://localhost:8000/api/recurringf')
-  //     .then(response => setDataf(response.data.message))
-  //     .catch(error => {
-  //       console.error(error);
-  //     });
-  // }, []);
-
-  useEffect(() => {
-    const getYear = async (year) => {
-      const res = await axios.get(`http://127.0.0.1:8000/api/fixed?year=${year}`);
-      setData(res.data.message.filter(item => new Date(item.created_at).getFullYear() === parseInt(year)));
+      }
     };
 
-    if (selectedYear) {
-      getYear(selectedYear);
-    }
+    fetchData();
   }, [selectedYear]);
-
-  // useEffect(() => {
-  //   const getYear = async (year) => {
-  //     const res = await axios.get(`http://127.0.0.1:8000/api/recurringf?year=${year}`);
-  //     setDatar(res.data.message.filter(item => new Date(item.created_at).getFullYear() === parseInt(year)));
-  //   };
-
-  //   if (selectedYear) {
-  //     getYear(selectedYear);
-  //   }
-  // }, [selectedYear]);
-
-
   const formatData = () => {
-    if (!data.length) {
-      return new Array(12).fill().map((_, i) => ({
-        month: new Date(new Date().getFullYear(), i).toLocaleString('default', { month: 'long' }),
-        income: 0,
-        expense: 0,
-        result: 0,
-      }));
-    }
+    const data = [...dataf, ...datar];
 
-    const monthlyData = [];
-    const year = new Date(data[0].created_at).getFullYear();
+    const monthlyData = new Array(12).fill().map((_, i) => ({
+      month: new Date(selectedYear, i).toLocaleString('default', { month: 'long' }),
+      income: 0,
+      expense: 0,
+      result: 0,
+    }));
+
     let totalPrevious = 0;
 
     for (let i = 0; i < 12; i++) {
-      const monthName = new Date(year, i).toLocaleString('default', { month: 'long' });
-      let monthlyIncome = 0;
-      let monthlyExpense = 0;
+      const monthData = monthlyData[i];
 
-      if (i <= new Date().getMonth()) {
-        monthlyIncome = data
+      const dataExistsForMonth = data.some(
+        (item) =>
+          (item.type === 'income' || item.type === 'expense') &&
+          new Date(item.endDate).getFullYear() === parseInt(selectedYear) &&
+          new Date(item.endDate).getMonth() === i
+      );
+
+      if (dataExistsForMonth) {
+        const monthlyIncome = data
           .filter(
             (item) =>
               item.type === 'income' &&
-              new Date(item.created_at).getFullYear() === year &&
-              new Date(item.created_at).getMonth() === i
+              new Date(item.endDate).getFullYear() === parseInt(selectedYear) &&
+              new Date(item.endDate).getMonth() === i
           )
-          .reduce((acc, item) => acc + item.amount, 0) + totalPrevious;
+          .reduce((acc, item) => acc + parseFloat(item.amount), 0) + totalPrevious;
 
-        monthlyExpense = data
+        const monthlyExpense = data
           .filter(
             (item) =>
               item.type === 'expense' &&
-              new Date(item.created_at).getFullYear() === year &&
-              new Date(item.created_at).getMonth() === i
+              new Date(item.endDate).getFullYear() === parseInt(selectedYear) &&
+              new Date(item.endDate).getMonth() === i
           )
-          .reduce((acc, item) => acc + item.amount, 0);
+          .reduce((acc, item) => acc + parseFloat(item.amount), 0);
 
         totalPrevious = monthlyIncome - monthlyExpense;
+
+        const monthlyResult = monthlyIncome - monthlyExpense;
+
+        monthData.income = monthlyIncome;
+        monthData.expense = monthlyExpense;
+        monthData.result = monthlyResult;
       }
-
-      const monthlyResult = monthlyIncome - monthlyExpense;
-
-      monthlyData.push({
-        month: monthName,
-        income: monthlyIncome,
-        expense: monthlyExpense,
-        result: i <= new Date().getMonth() ? monthlyResult : null,
-      });
     }
 
     return monthlyData;
@@ -107,7 +81,6 @@ const Chart = () => {
   return (
     <>
       <div>
-        <label htmlFor='year-input'>Select Year:</label>
         <select id='year-input' onChange={(e) => setSelectedYear(e.target.value)}>
           <option value=''>Select Year</option>
           <option value='2021'>2021</option>
@@ -120,6 +93,7 @@ const Chart = () => {
           <BarChart data={chartData}>
             <XAxis dataKey='month' />
             <YAxis />
+            <CartesianGrid strokeDasharray="3 2" />
             <Tooltip />
             <Bar dataKey="income" fill="green" radius={8} />
             <Bar dataKey="expense" fill="red" radius={8} />
