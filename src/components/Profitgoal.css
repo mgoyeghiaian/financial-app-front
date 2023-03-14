@@ -6,7 +6,19 @@
 .profit-card{
   display: flex;
   flex-direction: column;
-  background-color: var(--lightgray);
+  background-color: #ffffffa7;
+  border: rgba(199, 196, 196, 0.665) solid 2px;
+
+  width: 94%;
+  border-radius: 35px;
+  align-items: center;
+}
+
+.profit-card2{
+  display: flex;
+  flex-direction: column;
+  background-color: #d5d3d377;
+  border: rgba(199, 196, 196, 0.665) solid 2px;
   width: 94%;
   border-radius: 35px;
   align-items: center;
@@ -25,8 +37,27 @@ margin-left: 5px;}
 margin-left: 5px;  font-weight: bold;
   font-size: 1.2vw;
 }
+
 .profit-card img{
   margin-top: 24px;
   margin-bottom: 10px;
-  width: 27%;
+  width: 25%;
+}
+
+
+
+.profit-card2 p {
+  margin-top: 0;
+  font-size: 1vw;
+margin-left: 5px;}
+
+.profit-card2 h2 {
+margin-left: 5px;  font-weight: bold;
+  font-size: 1.2vw;
+}
+
+.profit-card2 img{
+  margin-top: 24px;
+  margin-bottom: 10px;
+  width: 25%;
 }

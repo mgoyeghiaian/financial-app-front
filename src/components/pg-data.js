@@ -4,17 +4,17 @@ const Pdata = [
   {
     img: Logob,
     type: "Total Balance",
-    amount: 7555575,
+    amountB: 7555575,
   },
   {
     img: Logow,
     type: "Total Expenses",
-    amount: 255.5,
+    amountE: 255.5,
   },
   {
     img: Logow,
     type: "Total income",
-    amount: 66689.6,
+    amountI: 66689.6,
   },
 ];
 export default Pdata;
