@@ -21,13 +21,16 @@ function Login() {
         .then((response) => {
           const expiresIn = 86400; // 1 day in seconds
           const expiresAt = moment().add(expiresIn, 'seconds');
+          console.log(response.data);
+
           if ((response.data.status = 201)) {
+            console.log(response.data);
             sessionStorage.setItem('userType', response.data.user_type);
             sessionStorage.setItem('userToken', response.data.access_token);
             sessionStorage.setItem('expiresAt', expiresAt);
             window.location.href = "/home";
           }
-          console.log(response.data);
+
         })
         .catch((error) => {
           console.log(error.response.data.error);
