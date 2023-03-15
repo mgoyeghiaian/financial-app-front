@@ -1,0 +1,69 @@
+.popup{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    opacity: 0.7;
+    align-items: center;
+    
+}
+
+
+.popup-inner{
+   height: 30vh;
+    padding: 32px;
+    border-radius: 20px;
+    max-width: 640px;
+    background-color:gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+   
+}
+
+.close-btn {
+  width: 7vh;
+  margin: 40px;
+  background-color: white;
+  color:black;
+  border: none;
+  padding: 2px;
+  font-size: 18px;
+   
+}
+
+.delete{
+   color:black;
+  width: 7vh;
+  font-size: 18px;
+  border: none;
+  height: 2.6vh;
+
+}
+
+
+.popup-open{
+  background-color: rgb(157, 45, 45);
+  color: beige;
+  width: 2.5vh;
+  border: none;
+  height: 2.6vh;
+  font-size: 20px;
+  
+}
+
+.edit{
+  background-color: hsl(240, 37%, 65%);
+  color:black;
+  width: 4vh;
+  color: white;
+  border: none;
+  height: 2.6vh;
+}
+
+

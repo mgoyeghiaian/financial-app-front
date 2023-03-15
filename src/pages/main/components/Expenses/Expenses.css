@@ -32,4 +32,146 @@ margin-top: 22px;
   height: 100%;
 }
 
+.expense-form{
+  margin-top: 6%;
+  display: flex;
+  justify-content: space-between;
+  /* text-align: center;
+  
+}
+
+.parent{
+  display: flex;
+
+}
+
+.enterEx { 
+  width: 72%;
+  height: 3rem;
+  border-radius: 1rem;
+  /* margin-top: 11%; */
+
+}
+
+.addEx{
+  width: 109%;
+  height: 3rem;
+  margin-left: 2%;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  background-color: #ffffffad;
+}
+
+.type{
+  height: 3rem;
+border-radius: 1rem;
+margin-right: 1rem;
+}
+.data{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(143, 146, 146);
+  margin-top: 2%;
+  padding: 2%;
+  border-radius: 2rem;
+} */
+
+/* tr{
+  margin-top: 2rem;
+  display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+}
+
+.td-within{
+  display: flex;
+  justify-content: space-between;
+  
+} */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: montserrat, sans-serif;
+}
+
+
+
+.report{
+ 
+   background-color: grey;
+   display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+td{
+  width: 20vh;
+  font-size: 2vh;
+}
+
+#category{
+ 
+  height: 4vh;
+  border-radius: 15px;
+}
+
+td.category{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.td-within{
+  margin: 40px;
+  background-color: white;
+  border-radius: 20px;
+  height: 7vh;
+   display: flex;
+  align-items: center;
+  justify-content:space-around;
+  
+}
+
+
+.input-form{
+ height: 10vh;
+  background-color:gray;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  gap: 1vh;
+  
+}
+
+
+.input-form input{
+ border-radius: 10px;
+ border: none;
+ font-size: 15px;
+ height: 3vh;
+  
+}
+
+
+/* .delete{
+  background-color: brown;
+  border-radius: 5px;
+  color: bisque;
+  font-size: 25px;
+  border: none;
+  width: 3vh;
+  height: 3vh;
+} */
+
+.add-btn{
+  background-color: darkgray;
+  color: beige;
+  width: 7vh;
+  border: none;
+  
+  
+}
+
 
