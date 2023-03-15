@@ -55,12 +55,14 @@ align-items: center;
   flex-direction: row;
   text-align: center;
   align-items: center;
-  width: 100%;
+  width: 98%;
   height: 50px;
   border-radius: 35px;
   background-color: rgba(235, 230, 230, 0.709);
   border: 1px solid rgb(224, 220, 220);
 justify-content: space-around;
+align-self: center;
+
 }
 
 .home-report-data p{
@@ -79,7 +81,7 @@ justify-content: space-around;
   flex-direction: column;
 }
 .home-report-card h3{
- border: 1px solid black;
+ border: 1px solid rgb(158, 156, 156);
  border-radius: 35px;
  text-align: center;
  align-self: center;
