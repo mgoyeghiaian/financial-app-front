@@ -1,5 +1,4 @@
-
-.income-body{
+.income-body {
   background-color: var(--darkgray);
   display: grid;
   grid-template-columns: 18% 80%;
@@ -9,20 +8,20 @@
   color: var(--textlight);
 }
 
-.in-report-body{
+.in-report-body {
   display: flex;
   height: 95%;
 }
 
-.in-report-card{
+.in-report-card {
   width: 99%;
-margin-top: 22px; 
- background-color: var(--lightgray);
-  border-radius: 35px ;
+  margin-top: 22px;
+  background-color: var(--lightgray);
+  border-radius: 35px;
   height: 100%;
 }
 
-.in-report-card h1{
+.in-report-card h1 {
   font-size: 2vh;
 }
 
@@ -33,4 +32,51 @@ margin-top: 22px;
 .income-right {
   grid-column: 2;
   height: 100%;
+}
+
+td {
+  width: 20vh;
+  font-size: 2vh;
+}
+
+#category {
+  height: 3vh;
+}
+
+td.category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.td-within {
+  margin: 40px;
+
+  border-radius: 20px;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.input-form {
+  height: 10vh;
+  background-color: rgb(230, 226, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1vh;
+}
+
+.input-form input {
+  font-size: 15px;
+  height: 3vh;
+}
+
+.add-btn {
+  background-color: darkgray;
+  color: beige;
+  width: 7vh;
+  border: none;
 }
