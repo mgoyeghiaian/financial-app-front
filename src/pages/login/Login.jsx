@@ -10,14 +10,13 @@ function Login() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const carouselRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const csrfToken = document.querySelector('meta[name="csrf-token"]');
     if (csrfToken) {
       const token = csrfToken.getAttribute('content');
       axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
-      axios
-        .post('http://127.0.0.1:8000/api/login', { email, password })
+      await axios.post('http://127.0.0.1:8000/api/login', { email, password })
         .then((response) => {
           const expiresIn = 86400; // 1 day in seconds
           const expiresAt = moment().add(expiresIn, 'seconds');
@@ -72,35 +71,35 @@ function Login() {
     <div className='login-body'>
       <div className='R-left'>
         <div className='carousel-parent'>
-        <ul className='carousel-wrapper' ref={carouselRef}onScroll={(e) => {
-          const scrollPosition = e.target.scrollLeft;
-          const slideWidth = e.target.offsetWidth;
-          const newSlide = Math.round(scrollPosition / slideWidth);
-          setCurrentSlide(newSlide);
-        }}>
-          <li className="carousel-child carousel-child-1">
-            <p className='grand-child g-child-1'><span>Detailed analysis</span> <br></br><br></br>Have a detailed analysis on your work.</p>
-          </li>
-          <li className="carousel-child carousel-child-2">
-            <p className='grand-child g-child-2'><span>Detailed Statistics</span> <br></br><br></br>Statistics are what matters the most.</p>
-          </li>
-          <li className="carousel-child carousel-child-3">
-            <p className='grand-child g-child-3'><span>Detailed Evaluation</span> <br></br><br></br>Evaluate your work in order to grow.</p>
-          </li>
-        </ul>
-        <ul className='indicator'>
-          <li className={`indicator-child child-1 ${currentSlide === 0 ? 'active' : ''}`}></li>
-          <li className={`indicator-child child-2 ${currentSlide === 1 ? 'active' : ''}`}></li>
-          <li className={`indicator-child child-3 ${currentSlide === 2 ? 'active' : ''}`}></li>
-        </ul>
+          <ul className='carousel-wrapper' ref={carouselRef} onScroll={(e) => {
+            const scrollPosition = e.target.scrollLeft;
+            const slideWidth = e.target.offsetWidth;
+            const newSlide = Math.round(scrollPosition / slideWidth);
+            setCurrentSlide(newSlide);
+          }}>
+            <li className="carousel-child carousel-child-1">
+              <p className='grand-child g-child-1'><span>Detailed analysis</span> <br></br><br></br>Have a detailed analysis on your work.</p>
+            </li>
+            <li className="carousel-child carousel-child-2">
+              <p className='grand-child g-child-2'><span>Detailed Statistics</span> <br></br><br></br>Statistics are what matters the most.</p>
+            </li>
+            <li className="carousel-child carousel-child-3">
+              <p className='grand-child g-child-3'><span>Detailed Evaluation</span> <br></br><br></br>Evaluate your work in order to grow.</p>
+            </li>
+          </ul>
+          <ul className='indicator'>
+            <li className={`indicator-child child-1 ${currentSlide === 0 ? 'active' : ''}`}></li>
+            <li className={`indicator-child child-2 ${currentSlide === 1 ? 'active' : ''}`}></li>
+            <li className={`indicator-child child-3 ${currentSlide === 2 ? 'active' : ''}`}></li>
+          </ul>
         </div>
       </div>
-       <div className='login-card'>
-          <h1 className='wlcm-h1'>Welcome Back!</h1>
-          <div className="form-wrapper">
-            <div className='called'>
-          <h1 className='lg-head'>Log in</h1>
-          {error && <p className='err-msg'>{error}</p>}
+      <div className='login-card'>
+        <h1 className='wlcm-h1'>Welcome Back!</h1>
+        <div className="form-wrapper">
+          <div className='called'>
+            <h1 className='lg-head'>Log in</h1>
+            {error && <p className='err-msg'>{error}</p>}
             <form autoComplete="off"
               action="" onSubmit={handleSubmit} className='hashish'>
               <div className="input-group">
@@ -108,16 +107,16 @@ function Login() {
                 <label htmlFor="email">Email</label>
               </div>
               <div className="input-group" >
-                <input id='password'type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input id='password' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <label htmlFor="password">Password</label>
               </div>
               <button className="login-button" type="submit">Login</button>
             </form>
-            </div>
+          </div>
         </div>
         <p className='inf-msg'>Having problems while logging in? Plz contact the SuperAdmin</p>
-       </div>
-     </div>
+      </div>
+    </div>
   );
 }
 
