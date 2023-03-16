@@ -6,6 +6,7 @@
   grid-row-gap: 2vh;
   min-height: 100vh;
   color: var(--textlight);
+ 
 }
 
 .in-report-body {
@@ -14,7 +15,10 @@
 }
 
 .in-report-card {
-  width: 99%;
+  width: 79vw;
+  display: flex;
+align-items: center;  
+flex-direction: column;
   margin-top: 22px;
   background-color: var(--lightgray);
   border-radius: 35px;
@@ -34,49 +38,102 @@
   height: 100%;
 }
 
-td {
-  width: 20vh;
-  font-size: 2vh;
-}
-
-#category {
-  height: 3vh;
-}
-
-td.category {
+.income-ex-input{
+  padding: 15px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.td-within {
-  margin: 40px;
-
-  border-radius: 20px;
-  height: 7vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.income-form{
+align-items: center;
+display: flex;
+gap: 35px;
+flex-wrap: wrap;
+height: 55px;
+width: 70vw;
+justify-content: center;
+border-radius: 35px;
+font-weight: bolder;
+border: 1px solid rgb(118, 115, 115);
 }
 
-.input-form {
-  height: 10vh;
-  background-color: rgb(230, 226, 226);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 1vh;
-}
-
-.input-form input {
+.in-report-card button{
+  width: 70px;
+  height: 35px;
+  background-color: aliceblue;
+  border-radius: 35px;
+  border: 0.1 solid gray;
+  font-weight: bolder;
   font-size: 15px;
-  height: 3vh;
 }
 
-.add-btn {
-  background-color: darkgray;
-  color: beige;
-  width: 7vh;
+.inc-ex-data{
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+
+}
+
+.inc-ex-data div{
+  display: flex;
+  width: 60vw;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+
+border: 1px solid rgb(165, 160, 160);
+border-radius: 35px;
+}
+
+.income-form input{
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-left: 5px;
+text-align: center;
+font-weight: bold;
+}
+
+.income-form select{
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-left: 5px;
+  font-weight: bold;
+
+}
+
+.confirmation-popup {
+  position: fixed;
+  top: 30%;
+ 
+  height: 55px;
+  background-color: rgba(246, 16, 16, 0.742);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.confirmation-popup p {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.confirmation-popup button {
+  background-color: #fff;
+  color: #000;
   border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.confirmation-popup button:hover {
+  background-color: #000;
+  color: #fff;
 }
