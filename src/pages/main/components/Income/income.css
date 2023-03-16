@@ -1,5 +1,4 @@
-
-.income-body{
+.income-body {
   background-color: var(--darkgray);
   display: grid;
   grid-template-columns: 18% 80%;
@@ -7,22 +6,26 @@
   grid-row-gap: 2vh;
   min-height: 100vh;
   color: var(--textlight);
+ 
 }
 
-.in-report-body{
+.in-report-body {
   display: flex;
   height: 95%;
 }
 
-.in-report-card{
-  width: 99%;
-margin-top: 22px; 
- background-color: var(--lightgray);
-  border-radius: 35px ;
+.in-report-card {
+  width: 79vw;
+  display: flex;
+align-items: center;  
+flex-direction: column;
+  margin-top: 22px;
+  background-color: var(--lightgray);
+  border-radius: 35px;
   height: 100%;
 }
 
-.in-report-card h1{
+.in-report-card h1 {
   font-size: 2vh;
 }
 
@@ -33,4 +36,104 @@ margin-top: 22px;
 .income-right {
   grid-column: 2;
   height: 100%;
+}
+
+.income-ex-input{
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.income-form{
+align-items: center;
+display: flex;
+gap: 35px;
+flex-wrap: wrap;
+height: 55px;
+width: 70vw;
+justify-content: center;
+border-radius: 35px;
+font-weight: bolder;
+border: 1px solid rgb(118, 115, 115);
+}
+
+.in-report-card button{
+  width: 70px;
+  height: 35px;
+  background-color: aliceblue;
+  border-radius: 35px;
+  border: 0.1 solid gray;
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.inc-ex-data{
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+
+}
+
+.inc-ex-data div{
+  display: flex;
+  width: 60vw;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+
+border: 1px solid rgb(165, 160, 160);
+border-radius: 35px;
+}
+
+.income-form input{
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-left: 5px;
+text-align: center;
+font-weight: bold;
+}
+
+.income-form select{
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-left: 5px;
+  font-weight: bold;
+
+}
+
+.confirmation-popup {
+  position: fixed;
+  top: 30%;
+ 
+  height: 55px;
+  background-color: rgba(246, 16, 16, 0.742);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.confirmation-popup p {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.confirmation-popup button {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.confirmation-popup button:hover {
+  background-color: #000;
+  color: #fff;
 }
