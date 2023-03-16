@@ -27,7 +27,7 @@
     "react-spinners": "^0.13.8",
     "react-switch": "^7.0.0",
     "rechart": "^0.0.1",
-    "recharts": "^2.4.3",
+    "recharts": "^2.5.0",
     "universal-cookie": "^4.0.4",
     "victory": "^36.6.8",
     "web-vitals": "^2.1.4"
