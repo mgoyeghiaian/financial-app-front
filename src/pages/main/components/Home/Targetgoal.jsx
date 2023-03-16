@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import './home.css';
 import { useState } from 'react';
 import axios from 'axios';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const Targetgoal = () => {
   const [netProfit, setNetProfit] = useState('');
