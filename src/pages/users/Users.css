@@ -1,8 +1,9 @@
 .users-body{
   background-color: rgba(209, 201, 201, 0.536);
   display: grid;
-  grid-template-columns: 18% 82%;
-  min-height: 100vh;
+  grid-template-columns: 18% 80%;
+  height: 100vh;
+  grid-column-gap: 2vh;
 }
 
 .users-report-body{
@@ -29,24 +30,25 @@
 .users-right {
   grid-column: 2;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 48vh 4vh 48vh;
 }
 
 .users-header,
 .users-main {
-  padding: 1.8vw;
   background-color: var(--admlight);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: baseline;
   color: var(--textlight);
-  width: 92%;
-  border-radius: 30px;
-  margin: auto;
+  height: 100%;
 }
 
+.users-header h1 {
+  margin-left: 34px;
+}
 .users-form {
   display: flex;
   flex-direction: column;
@@ -61,7 +63,6 @@
 
 .users-form input {
   padding: 15px;
-  border-radius: 10px;
   outline: none;
   border: 1px solid rgb(161, 161, 161);
 }
@@ -69,51 +70,44 @@
 .usr-frm-sbmt {
   width: 100%;
   padding: 10px;
-  border-radius: 10px;
   outline: none;
   border: 1px solid rgb(161, 161, 161);
 }
 
 .users-main div {
-  width: 100%;
+  width: 90%;
   display: grid;
   grid-template-columns: 10% 45% 5% 15% 15%;
   grid-gap: 1vw;
   align-items: center;
   text-align: center;
   border: 1px solid rgb(161, 161, 161);
-  border-top: none;
+  margin-left: 34px;
+  margin-top: 10px;
 }
 
 .users-main div:first-child {
   border-top: 1px solid rgb(161, 161, 161);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
-.users-main div:last-child{
+.users-main div:last-child {
   border-bottom: 1px solid rgb(161, 161, 161);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 
 .tbl-btn {
   height: 50%;
   margin: 0 auto;
-  border-radius: 5px;
   outline: none;
   border: 1px solid rgb(161, 161, 161);
 }
 
 .users-h2 {
-  padding-left: 1.7vw;
-  height: 20px;
-  background-color: rgb(255 255 255);
+  padding-left: 34px;
   margin: 0;
   display: flex;
   align-items: center;
-  height: 30px;
 }
+
 
 .edit-form form{
   display: flex;
@@ -126,9 +120,7 @@
 }
 
 .users-main {
-    border-radius: 30px;
     overflow: scroll;
-    margin: auto;
 }
 
 .edit-form input {
@@ -185,6 +177,7 @@
 }
 .users-main{
   scrollbar-width: none;
+  justify-content: flex-start;
 }
 
 .users-main::-webkit-scrollbar {
