@@ -56,14 +56,14 @@ const Report = () => {
 
   const getfixed = async () => {
     const res = await axios.get("http://127.0.0.1:8000/api/fixed")
-    setfixedData(res.data.message);
+    setfixedData(res.data.message.filter(item => item.type === 'income'));
   }
 
 
 
   const getRecurring = async () => {
     const res = await axios.get("http://127.0.0.1:8000/api/recurring")
-    setRecurringData(res.data.message);
+    setRecurringData(res.data.message.filter(item => item.type === 'income'));
   }
 
 
