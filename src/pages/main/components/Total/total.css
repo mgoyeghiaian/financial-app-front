@@ -39,12 +39,18 @@
   background-color: #ffffffad;
   border-radius: 35px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.total-Date{
+  margin-left: 15px;
+  margin-bottom: 15px;
+  align-self: flex-start;
 }
 
 
-.total-hero-card h1 {
-  margin: 0;
-}
 
 .total-left {
   grid-row: 1/4;

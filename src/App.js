@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes, BrowserRouter, } from 'react-router-dom';
+import { Route, Routes, } from 'react-router-dom';
 import { Navigate, Outlet } from "react-router-dom";
 import Login from './pages/login/Login';
 import Expenses from './pages/main/components/Expenses/Expenses';
@@ -10,28 +10,26 @@ import Users from "./pages/users/Users"
 function App() {
   const useAuth = () => {
     const userToken = sessionStorage.getItem('userToken');
-    return userToken; 
+    return userToken;
   }
-  
+
   const useAdmin = () => {
     const userType = sessionStorage.getItem('userType');
     return userType === "1";
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route element={useAuth() ? <Outlet/> : <Navigate to="/"/>}>
-          <Route path='home' element={<Home />} />
-          <Route path='income' element={<Income />} />
-          <Route path='expenses' element={<Expenses />} />
-        </Route>
-        <Route element={useAdmin() ? <Outlet/> : <Navigate to="/home"/>}>
-          <Route path='users' element={<Users />} />
-        </Route>
-      </Routes> 
-    </BrowserRouter >
+    <Routes>
+      <Route path='/' element={<Login />} />
+      <Route element={useAuth() ? <Outlet /> : <Navigate to="/" />}>
+        <Route path='home' element={<Home />} />
+        <Route path='income' element={<Income />} />
+        <Route path='expenses' element={<Expenses />} />
+      </Route>
+      <Route element={useAdmin() ? <Outlet /> : <Navigate to="/home" />}>
+        <Route path='users' element={<Users />} />
+      </Route>
+    </Routes>
   );
 }
 

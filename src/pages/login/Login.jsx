@@ -40,22 +40,22 @@ function Login() {
       console.log('Could not find CSRF token element');
     }
   };
-  function updateLabel(input) {
-    const label = input.nextElementSibling;
-    if (input.value.length > 0) {
-      input.classList.add("has-value");
-      label.classList.add("has-value");
-    } else {
-      input.classList.remove("has-value");
-      label.classList.remove("has-value");
-    }
-  }
+  // function updateLabel(input) {
+  //   const label = input.nextElementSibling;
+  //   if (input.value.length > 0) {
+  //     input.classList.add("has-value");
+  //     label.classList.add("has-value");
+  //   } else {
+  //     input.classList.remove("has-value");
+  //     label.classList.remove("has-value");
+  //   }
+  // }
 
-  const inputs = document.querySelectorAll(".input-group input");
-  inputs.forEach(input => {
-    updateLabel(input);
-    input.addEventListener("input", () => updateLabel(input));
-  });
+  // const inputs = document.querySelectorAll(".input-group input");
+  // inputs.forEach(input => {
+  //   updateLabel(input);
+  //   input.addEventListener("input", () => updateLabel(input));
+  // });
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -106,13 +106,22 @@ function Login() {
           {error && <p className='err-msg'>{error}</p>}
             <form autoComplete="off"
               action="" onSubmit={handleSubmit} className='hashish'>
-              <div className="input-group">
+              {/* <div className="input-group">
                 <input id='email' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <label htmlFor="email">Email</label>
               </div>
               <div className="input-group" >
-                <input id='password'type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input id='password' type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <label htmlFor="password">Password</label>
+              </div> */}
+              <div className="user-input-wrp">
+                <input className="inputText" id='email' type="text" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                <span className="floating-label">Email</span>
+              </div>
+
+              <div className="user-input-wrp">
+                <input id='password'type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="inputText" required/>
+                <span className="floating-label">Password</span>
               </div>
               <button className="login-button" type="submit">Login</button>
             </form>

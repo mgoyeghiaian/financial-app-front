@@ -18,14 +18,22 @@ function changeTheme() {
     root.style.setProperty('--textlight', 'black');
     root.style.setProperty('--admlight', 'rgba(209, 201, 201, 0.536)');
     root.style.setProperty('--transition', 'background-color 0.5s ease');
+    root.style.setProperty('--btn-hvr', 'black');
+    root.style.setProperty('--btn-hvrt', 'black');
+    root.style.setProperty('--text', 'white');
+    root.style.setProperty('--chart', 'white');
     localStorage.setItem('theme', 'light');
     setThemeOnLoad();
   } else {
-    root.style.setProperty('--lightgray', 'black');
+    root.style.setProperty('--lightgray', '#4e4e4e');
     root.style.setProperty('--darkgray', 'gray');
     root.style.setProperty('--textlight', 'white');
     root.style.setProperty('--admlight', 'white');
     root.style.setProperty('--transition', 'background-color 0.5s ease');
+    root.style.setProperty('--btn-hvr', 'white');
+    root.style.setProperty('--btn-hvrt', 'black');
+    root.style.setProperty('--text', 'black');
+    root.style.setProperty('--chart', '#ebebeb');
     localStorage.setItem('theme', 'dark');
     setThemeOnLoad();
   }
@@ -35,16 +43,24 @@ function setThemeOnLoad() {
   const root = document.documentElement;
   const theme = localStorage.getItem('theme');
   if (theme === 'dark') {
-    root.style.setProperty('--lightgray', 'black');
+    root.style.setProperty('--lightgray', '#4e4e4e');
     root.style.setProperty('--darkgray', 'gray');
     root.style.setProperty('--textlight', 'white');
     root.style.setProperty('--admlight', '#242424');
+    root.style.setProperty('--btn-hvr', 'white');
+    root.style.setProperty('--btn-hvrt', 'white');
+    root.style.setProperty('--text', 'black');
+    root.style.setProperty('--chart', '#ebebeb');
     root.style.setProperty('--transition', 'background-color 0.5s ease');
   } else {
     root.style.setProperty('--lightgray', 'white');
     root.style.setProperty('--darkgray', 'rgba(209, 201, 201, 0.536)');
     root.style.setProperty('--textlight', 'black');
     root.style.setProperty('--admlight', 'white');
+    root.style.setProperty('--btn-hvr', 'black');
+    root.style.setProperty('--btn-hvrt', 'black');
+    root.style.setProperty('--text', 'white');
+    root.style.setProperty('--chart', 'white');
     root.style.setProperty('--transition', 'background-color 0.5s ease');
   }
 }
