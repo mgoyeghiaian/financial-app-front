@@ -1,63 +1,141 @@
-.profit-main{
-  display: grid;
-  grid-template-columns: 34% 34% 34%;
+@media all and (min-width:851px){
+
+  .profit-main{
+    display: grid;
+    grid-template-columns: 34% 34% 34%;
+  }
+  
+  
+  .profit-card{
+    display: flex;
+    flex-direction: column;
+    background-color: #d5d3d377;
+    border: rgba(199, 196, 196, 0.665) solid 2px;
+    width: 94%;
+    border-radius: 35px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+  
+  .profit-card:first-child{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffffa7;
+    border: rgba(199, 196, 196, 0.665) solid 2px;
+    width: 94%;
+    border-radius: 35px;
+    align-items: center;
+  }
+  
+  .profit-card div {
+    width: 85%;
+  }
+  
+  .profit-card p {
+    margin-top: 0;
+    font-size: 1.3vw;
+  margin-left: 5px;
+  }
+  
+  .profit-card h2 {
+  margin-left: 5px;  font-weight: bold;
+    font-size: 1.5vw;
+  }
+  
+  .profit-card img{
+    margin-top: 24px;
+    margin-bottom: 10px;
+    width: 25%;
+  }
+  
+  
+  
+  .profit-card2 p {
+    margin-top: 0;
+    font-size: 1.3vw;
+  margin-left: 5px;
+  }
+  
+  .profit-card2 h2 {
+  margin-left: 5px;  font-weight: bold;
+    font-size: 1.2vw;
+  }
+  
+  .profit-card2 img{
+    margin-top: 24px;
+    margin-bottom: 10px;
+    width: 25%;
+  }
 }
 
-.profit-card{
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffffa7;
-  border: rgba(199, 196, 196, 0.665) solid 2px;
-
-  width: 94%;
-  border-radius: 35px;
-  align-items: center;
-}
-
-.profit-card2{
-  display: flex;
-  flex-direction: column;
-  background-color: #d5d3d377;
-  border: rgba(199, 196, 196, 0.665) solid 2px;
-  width: 94%;
-  border-radius: 35px;
-  align-items: center;
-}
-
-.profit-card div {
-  width: 85%;
-}
-
-.profit-card p {
-  margin-top: 0;
-  font-size: 1vw;
-margin-left: 5px;}
-
-.profit-card h2 {
-margin-left: 5px;  font-weight: bold;
-  font-size: 1.2vw;
-}
-
-.profit-card img{
-  margin-top: 24px;
-  margin-bottom: 10px;
-  width: 25%;
-}
 
 
 
-.profit-card2 p {
-  margin-top: 0;
-  font-size: 1vw;
-margin-left: 5px;}
+@media all and (max-width:850px){
 
-.profit-card2 h2 {
-margin-left: 5px;  font-weight: bold;
-  font-size: 1.2vw;
-}
-
-.profit-card2 img{
-  margin-top: 24px;
-  margin-bottom: 10px;
-  width: 25%;
+  .profit-main{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 30% 30% 30%;
+    grid-column-gap: 3%;
+    grid-template-rows: 26vh;
+    place-content: center;
+  }
+  
+  .profit-card{
+    display: grid;
+    background-color: #d5d3d377;
+    border: rgba(199, 196, 196, 0.665) solid 2px;
+    border-radius: 35px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 30% 30%;
+    place-content: center;
+    place-items: center;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+  
+  .profit-card:first-child{
+    background-color: #ffffffa7;
+    width: 100%;
+  }
+  
+  
+  .profit-card div {
+    width: 85%;
+  }
+  
+  .profit-card p {
+    margin-top: 0;
+  }
+  
+  .profit-card h2 { 
+   font-weight: bold;
+   font-size: 3vw;
+  }
+  
+  .profit-card img{
+    margin-top: 24px;
+    margin-bottom: 10px;
+    width: 25%;
+  }
+  
+  
+  
+  .profit-card2 p {
+    margin-top: 0;
+    font-size: 1.3vw;
+  margin-left: 5px;
+  }
+  
+  .profit-card2 h2 {
+  margin-left: 5px;  font-weight: bold;
+    font-size: 1.2vw;
+  }
+  
+  .profit-card2 img{
+    margin-top: 24px;
+    margin-bottom: 10px;
+    width: 25%;
+  }
 }

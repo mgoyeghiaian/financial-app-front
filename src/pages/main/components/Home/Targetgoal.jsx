@@ -102,10 +102,8 @@ const Targetgoal = () => {
       <div className='home-tg-card'>
         <h1>Target Goal</h1>
         <form onSubmit={handleSubmit}>
-          <label htmlFor='net-profit-input'>Add Target Amount: </label>
-          <br />
+          <label htmlFor='net-profit-input'>Add Target Amount</label>
           <input type='number' id='net-profit-input' value={netProfit} onChange={handleNetProfitChange} />
-          <br />
           <button className='Target-B' type='submit'>Add</button>
         </form>
         <label htmlFor='year-input'></label>
@@ -113,29 +111,36 @@ const Targetgoal = () => {
           <option value=''>Select a year</option>
           {yearOptions}
         </select>
-        {selectedYear ? (
-          data.length ? (
-            data.map((item, index) => (
-              <div key={index}>
+        <div className='trgt-gl-wrpr'>
+          {
+            selectedYear ? (
+              data.length ? (
+                data.map((item, index) => (
+                  <div key={index} className="trgt-gl">
 
-                <h4>Target Amount: [${item.netProfit}]</h4>
-                <h4>Total Profit: [${total_amount}]</h4>
-                <h4>Remaining Profit: [${item.netProfit - total_amount}]</h4>
-                <button className='Target-B' type='button' onClick={() => handleDelete(item.id)}>
-                  Delete
-                </button>
-              </div>
+                    <h4>Target Amount</h4>
+                    <span>${item.netProfit}</span>
+                    <h4>Total Profit</h4>
+                    <span>${total_amount}</span>
+                    <h4>Remaining Profit</h4>
+                    <span>${item.netProfit - total_amount}</span>
+                    <button className='Target-B Target-c' type='button' onClick={() => handleDelete(item.id)}>
+                      Delete
+                    </button>
+                  </div>
 
 
-            ))
-          ) : (
-            <h4>No data found for the selected year.</h4>
-          )
-        )
-          : (
-            <h4>Please select a year to see the data.</h4>
-          )}
-      </div>
+                ))
+              ) : (
+                <h4 className='h4-tgcard'>No data found for the selected year.</h4>
+              )
+            )
+              : (
+                <h4 className='h4-tgcard'>Please select a year to see the data.</h4>
+              )
+          }
+        </div >
+      </div >
     </div >
   );
 };

@@ -6,3 +6,15 @@
 h1{
   text-align: center;
 }
+
+*{
+  transition: .1s;
+}
+
+
+@media all and (max-width:750px){
+
+  .R-left {
+    background: red;
+  }
+}

@@ -82,6 +82,10 @@ const [editPassword, setEditPassword] = useState('');
     }
   };
 
+  const handleCancel = () => {
+    setShowEdit(false);
+  }
+
   return (
     <div className="users-body">
       <div className="users-left">
@@ -146,6 +150,7 @@ const [editPassword, setEditPassword] = useState('');
           ))}
         </main>
         {showEdit && (
+          <div className='editwrap'>
           <div className="edit-form">
             <h2>Edit User</h2>
             <form onSubmit={handleSave}>
@@ -182,8 +187,12 @@ const [editPassword, setEditPassword] = useState('');
                   onChange={(e) => setEditPassword(e.target.value)}
                 />
               </div>
-              <button type="submit">Save</button>
+              <div id='edt-btn-wrapper'>
+                <button type="submit">Save</button>
+                <button type="button" onClick={handleCancel}>Cancel</button>
+              </div>
             </form>
+          </div>
           </div>
         )}
         </div>

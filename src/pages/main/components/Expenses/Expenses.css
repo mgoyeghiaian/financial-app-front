@@ -1,3 +1,4 @@
+@media all and (min-width:851px) {
 .expenses-body{
   background-color: rgba(209, 201, 201, 0.536);
   display: grid;
@@ -20,6 +21,8 @@ margin-top: 22px;
   height: 100%;
 }
 
+
+
 .ex-report-card h1{
  font-size: 2vh;
 }
@@ -34,3 +37,40 @@ margin-top: 22px;
 }
 
 
+}
+
+
+@media all and (max-width:850px) {
+  .expenses-body{
+    background-color: rgba(209, 201, 201, 0.536);
+    color: var(--textlight);
+  }
+  
+  .ex-report-body{
+    display: flex;
+    height: 95%;
+  }
+  .ex-report-card{
+    width: 99%;
+  margin-top: 22px; 
+   background-color: var(--lightgray);
+    border-radius: 35px ;
+    height: 100%;
+  }
+  
+  
+  
+  .ex-report-card h1{
+   font-size: 2vh;
+  }
+  
+  .expenses-left {
+    grid-column: 1;
+  }
+  
+  .expenses-right {
+    height: 100%;
+  }
+  
+  
+  }

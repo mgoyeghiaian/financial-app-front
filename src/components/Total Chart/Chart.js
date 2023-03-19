@@ -93,9 +93,6 @@ const Chart = () => {
 
   }
 
-  const GREEN_COLOR = '#3C763D';
-  const RED_COLOR = '#A94442';
-  const BLUE_COLOR = '#31708F';
 
 
   return (
@@ -115,9 +112,9 @@ const Chart = () => {
             <YAxis domain={['auto', 'auto']} />
             <CartesianGrid strokeDasharray="3 2" />
             <Tooltip />
-            <Bar dataKey="income" fill={GREEN_COLOR} radius={8} />
-            <Bar dataKey="expense" fill={RED_COLOR} radius={8} />
-            <Bar dataKey="result" fill={BLUE_COLOR} radius={8} />
+            <Bar dataKey="income" fill="#3C763D" radius={8} />
+            <Bar dataKey="expense" fill="#A94442" radius={8} />
+            <Bar dataKey="result" fill="#31708F" radius={8} />
             <Legend />
           </BarChart>
         </ResponsiveContainer>

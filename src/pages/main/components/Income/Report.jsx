@@ -107,7 +107,7 @@ const Report = () => {
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                placeholder="amount"
+                placeholder="Amount"
               ></input></label>
 
             <label htmlFor="startDate">Start Date:
@@ -137,12 +137,6 @@ const Report = () => {
             </button>
           </form>
         </div>
-
-
-
-
-
-
         {/* data Mapping Section */}
         <div className="inc-ex-data">
           {/* Fixed Part */}
@@ -164,14 +158,14 @@ const Report = () => {
           {/* Recurring Part */}
           {RecurringData.map((item, index) => (
             <div key={index}>
-              <h4>{item.type}</h4>
-              <h4>{item.title}</h4>
-              <h4>{item.amount}</h4>
-              <h4>{item.startDate}</h4>
-              <h4>{item.endDate}</h4>
-              <h4>
+              <h3>{item.type}</h3>
+              <h3>{item.title}</h3>
+              <h3>{item.amount}</h3>
+              <h3>{item.startDate}</h3>
+              <h3>{item.endDate}</h3>
+              <h3>
                 {item.category}
-              </h4>
+              </h3>
               <button type="button" onClick={() => handleDelete(item.category, item.id)}>Delete</button>
             </div>
           ))}

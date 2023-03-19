@@ -35,13 +35,13 @@ const Profitgoal = () => {
         <h2>Total Profit</h2>
         <p>${totalProfit}</p>
       </div>
-      <div className='profit-card2'>
+      <div className='profit-card'>
         <img src={Logow} alt='' />
         <h2>Total Expenses</h2>
         <p>$ {expensestotal}</p>
       </div>
 
-      <div className='profit-card2'>
+      <div className='profit-card'>
         <img src={Logow} alt='' />
         <h2>Total Income</h2>
         <p> ${Incometotal}</p>
