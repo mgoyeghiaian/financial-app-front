@@ -8,7 +8,6 @@ const Report = () => {
   const [enddate, setendDate] = useState([]);
   const [category, setCategory] = useState('');
   const [isdeleted, setIsDeleted] = useState(0)
-  const [admin_id, setAdmin_id] = useState(1)
   const [type, setType] = useState('expense')
 
 
@@ -22,29 +21,33 @@ const Report = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (category === "fixed") {
+    if (category === 'fixed') {
       await axios.post('http://127.0.0.1:8000/api/fixed', {
-        title, amount, enddate, admin_id, isdeleted, category, type
+        title, amount, enddate, isdeleted, category, type
+      })
+
+      await axios.post('http://127.0.0.1:8000/api/report', {
+        amount, isdeleted, category, type, title
       })
       setIsDeleted(false);
-      setAdmin_id(1);
-      setType('income')
+      setType('expense')
       getfixed();
-
     }
 
     if (category === "recurring") {
       await axios.post('http://127.0.0.1:8000/api/recurring', {
-        title, amount, startdate, enddate, admin_id, isdeleted, category, type
+        title, amount, startdate, enddate, isdeleted, category, type
+      })
+
+      await axios.post('http://127.0.0.1:8000/api/report', {
+        title, amount, startdate, enddate, isdeleted, category, type
       })
       setIsDeleted(false);
-      setAdmin_id(1);
-      setType('income')
+      setType('expense')
       getRecurring();
-
     }
-  };
 
+  };
 
 
   //to fetch data 
@@ -57,27 +60,28 @@ const Report = () => {
 
   const getfixed = async () => {
     const res = await axios.get("http://127.0.0.1:8000/api/fixed")
-    setfixedData(res.data.message.filter(item => item.type === 'expense'));
+    setfixedData(res.data.message.filter(item => item.type === 'expense' && item.isDeleted === 0));
   }
 
 
 
   const getRecurring = async () => {
     const res = await axios.get("http://127.0.0.1:8000/api/recurring")
-    setRecurringData(res.data.message.filter(item => item.type === 'expense'));
+    setRecurringData(res.data.message.filter(item => item.type === 'expense' && item.isDeleted === 0));
   }
 
 
   // delete Fixed & Recurring Part
-  const handleDelete = async (id) => {
-    // setShowConfirmation(true);
-    await axios.delete(`http://127.0.0.1:8000/api/fixed/${id}`);
-    await axios.delete(`http://127.0.0.1:8000/api/recurring/${id}`);
-    getfixed();
-    getRecurring();
+  const handleDelete = async (category, id) => {
+    if (category === 'fixed') {
+      await axios.delete(`http://127.0.0.1:8000/api/fixed/${id}`);
+      getfixed();
+    } else if (category === 'recurring') {
+      await axios.delete(`http://127.0.0.1:8000/api/recurring/${id}`);
+      getRecurring();
+    }
+
   };
-
-
 
 
   return (
@@ -132,12 +136,6 @@ const Report = () => {
             </button>
           </form>
         </div>
-
-
-
-
-
-
         {/* data Mapping Section */}
         <div className="inc-ex-data">
           {/* Fixed Part */}
@@ -151,7 +149,7 @@ const Report = () => {
               <h3>
                 {item.category}
               </h3>
-              <button type="button" onClick={() => handleDelete(item.id)}>Delete</button>
+              <button type="button" id="deleteF" onClick={() => handleDelete(item.category, item.id)}>Delete</button>
             </div>
 
           ))}
@@ -167,7 +165,7 @@ const Report = () => {
               <h4>
                 {item.category}
               </h4>
-              <button type="button" onClick={() => handleDelete(item.id)}>Delete</button>
+              <button type="button" id="deletR" onClick={() => handleDelete(item.category, item.id)}>Delete</button>
             </div>
           ))}
         </div>

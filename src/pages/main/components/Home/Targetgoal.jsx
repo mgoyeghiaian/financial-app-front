@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import './home.css';
 import { useState } from 'react';
 import axios from 'axios';
-
 const Targetgoal = () => {
   const [netProfit, setNetProfit] = useState('');
   const [isDeleted, setIsDeleted] = useState(false);
@@ -36,18 +35,20 @@ const Targetgoal = () => {
     const res = await axios.get(`http://127.0.0.1:8000/api/profitgoal?year=${year}`);
     const filteredData = res.data.message.filter((item) => item.year === year && item.isDeleted === 0);
     setData(filteredData);
+
   };
 
   const getFixedyear = async (year) => {
     const res = await axios.get(`http://127.0.0.1:8000/api/fixedf?year=${year}`);
     const filteredFidexData = res.data;
     setFixedData(filteredFidexData);
-  };
 
+  };
   const getRecurringyear = async (year) => {
     const res = await axios.get(`http://127.0.0.1:8000/api/recurringf?year=${year}`);
     const filteredRecurringData = res.data;
     setRecurringData(filteredRecurringData);
+
   };
 
 
@@ -79,6 +80,21 @@ const Targetgoal = () => {
       console.error(error);
     }
   };
+
+
+
+  //Date Selector Function 
+  const currentYear = new Date().getFullYear();
+  const yearOptions = [];
+  for (let year = 2018; year <= currentYear; year++) {
+    yearOptions.push(
+      <option key={year} value={year}>
+        {year}
+      </option>
+    );
+  }
+
+  // Date Selector Finish here
   const total_amount = Fixeddata.total_amount + Recurringdata.total_amount;
   console.log(total_amount)
   return (
@@ -92,14 +108,11 @@ const Targetgoal = () => {
           <br />
           <button className='Target-B' type='submit'>Add</button>
         </form>
-        <div>
-          <select id='year-input' onChange={handleYearChange}>
-            <option value=''>Select Year</option>
-            <option value='2021'>2021</option>
-            <option value='2022'>2022</option>
-            <option value='2023'>2023</option>
-          </select>
-        </div>
+        <label htmlFor='year-input'></label>
+        <select id='year-input' value={selectedYear} onChange={handleYearChange}>
+          <option value=''>Select a year</option>
+          {yearOptions}
+        </select>
         {selectedYear ? (
           data.length ? (
             data.map((item, index) => (

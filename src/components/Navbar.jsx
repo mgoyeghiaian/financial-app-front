@@ -65,7 +65,7 @@ const Navbar = () => {
     <>
       <div className='navbar-body'>
         <div className='nav-logo'>
-          <Link to='/'>
+          <Link to='/home'>
             <img src={logo} alt='logo' />
           </Link>
           <h3>Financal app</h3>
@@ -80,7 +80,7 @@ const Navbar = () => {
               {userType === "1" ? <li><NavLink to="/users"><MdManageAccounts /><p>Users</p></NavLink ></li> : null}
             </ul>
             <div className='nav-manage-l'>
-              <button id="botton" className='theme'  onClick={changeTheme}>Theme</button>
+              <button id="botton" className='theme' onClick={changeTheme}>Theme</button>
               <button onClick={handleLogout} className='logout'>Log Out</button>
             </div>
           </div>
