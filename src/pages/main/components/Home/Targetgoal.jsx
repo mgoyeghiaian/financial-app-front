@@ -18,7 +18,7 @@ const Targetgoal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/profitgoal', {
+      await axios.post('http://127.0.0.1:8000/api/profitgoal', {
         netprofit: netProfit,
         isdeleted: isDeleted,
       });
@@ -62,10 +62,6 @@ const Targetgoal = () => {
 
   const handleNetProfitChange = (e) => {
     setNetProfit(e.target.value);
-  };
-
-  const handleIsDeletedChange = (e) => {
-    setIsDeleted(e.target.checked);
   };
 
   const handleYearChange = (e) => {
@@ -117,7 +113,6 @@ const Targetgoal = () => {
               data.length ? (
                 data.map((item, index) => (
                   <div key={index} className="trgt-gl">
-
                     <h4>Target Amount</h4>
                     <span>${item.netProfit}</span>
                     <h4>Total Profit</h4>
@@ -139,9 +134,9 @@ const Targetgoal = () => {
                 <h4 className='h4-tgcard'>Please select a year to see the data.</h4>
               )
           }
-        </div >
-      </div >
-    </div >
+        </div>
+      </div>
+    </div>
   );
 };
 

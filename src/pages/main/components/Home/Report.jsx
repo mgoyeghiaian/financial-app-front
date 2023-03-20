@@ -5,14 +5,20 @@ import axios from 'axios';
 
 const Report = () => {
   const [reportData, setreportData] = useState([]);
-
+  const [selectValue, setselectValue] = useState('');
   useEffect(() => {
     getReport();
-  }, []);
+  }, [selectValue]);
 
 
   const getReport = async () => {
-    const res = await axios.get("http://127.0.0.1:8000/api/report")
+    let res;
+    if (selectValue === 'fixed') {
+      res = await axios.get("http://127.0.0.1:8000/api/fixed")
+    }
+    if (selectValue === 'recurring') {
+      res = await axios.get("http://127.0.0.1:8000/api/recurring")
+    }
     const reportData = res.data.message.slice(-3).filter((item) => item.isDeleted === 0);
     setreportData(reportData.reverse());
   }
@@ -23,18 +29,25 @@ const Report = () => {
   return (
     <div className='home-report-body'>
       <div className='home-report-card'>
-        <h3>Report</h3>
+        <div className='report-select'>
+          <label htmlFor='report-type'></label>
+          <select id='year-input' value={selectValue} onChange={(e) => setselectValue(e.target.value)}>
+            <option value=''>Select Report Type</option>
+            <option value='fixed'>Fixed</option>
+            <option value='recurring'>Recurring</option>
+          </select>
+        </div>
         {reportData.map((item, index) => (
           <div className='home-report-data' key={index}>
-            <p> {item.title} </p>
+            <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.title} </p>
             <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.type} </p>
-            <p style={{ color: item.type === 'income' ? 'rgb(0 189 211)' : 'black' }}> {item.category}</p>
-            <p style={{ color: item.type === 'income' ? 'rgb(0 189 211)' : 'black' }}> {item.amount}$</p>
+            <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.category}</p>
+            <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.amount}$</p>
           </div>
 
         ))}
       </div>
-    </div>
+    </div >
 
   )
 }
