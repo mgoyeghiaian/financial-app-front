@@ -366,18 +366,19 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     align-items: center;
   }
 
   .called {
     box-shadow: 0 25px 50px rgb(37, 111, 172, 0.2);
     padding: 50px;
+    position: relative;
   }
 
   .lg-head {
     margin: 0;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
   }
   .input-group input:focus~label,
   .input-group input.has-value + label {
@@ -414,11 +415,13 @@
   }
 
   .err-msg {
+    text-align: center;
     position: absolute;
-    transform: translate(-50%, -109px);
-    top: 50%;
-    left: 50%;
     color: red;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
   }
 
   .wlcm-h1 {
@@ -496,11 +499,11 @@
     font-size: 15px;
   }
   .indicator {
-    display: flex;
-    gap: 10px;
+    display: none;
+    /* gap: 10px;
     padding: 0px;
     margin: 0;
-    height: 30px;
+    height: 30px; */
   }
 
   .indicator-child {
@@ -551,7 +554,7 @@
     margin: 0 auto;
     width: 55%;
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
   }
 
 

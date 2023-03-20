@@ -33,7 +33,7 @@ const Expenses = () => {
                 <div className={burger_class}></div>
                 <div className={burger_class}></div>
               </div>
-              <h1>Financial App</h1>
+              <h1 style={{opacity: isMenuClicked === true ? '0' : '1'}}>Financial App</h1>
           </div>
         <Report />
       </div>

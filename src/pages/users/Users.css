@@ -1,7 +1,195 @@
+@media all and (min-width:851px){
+  .users-body{
+    background-color: rgba(209, 201, 201, 0.536);
+    display: grid;
+    grid-template-columns: 18% 80%;
+    height: 100vh;
+    grid-column-gap: 2vh;
+  }
+  
+  .users-report-body{
+    display: flex;
+    height: 95%;
+  }
+  
+  .users-report-card{
+    width: 99%;
+    margin-top: 22px; 
+    background-color: #ffffff9c;
+    border-radius: 35px ;
+    height: 100%;
+  }
+  
+  .users-report-card h1{
+    font-size: 2vh;
+  }
+  
+  .users-left{
+    grid-column: 1;
+  }
+  
+  .users-right {
+    grid-column: 2;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 48vh 4vh 48vh;
+  }
+  
+  .users-header,
+  .users-main {
+    background-color: var(--lightgray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    color: var(--textlight);
+    height: 100%;
+  }
+  
+  .users-header h1 {
+    margin-left: 34px;
+  }
+  .users-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%;
+  }
+  
+  .users-form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .users-form input {
+    padding: 15px;
+    outline: none;
+    border: 1px solid rgb(161, 161, 161);
+  }
+  
+  .usr-frm-sbmt {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgb(161, 161, 161);
+  }
+  
+  .users-main div {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 10% 45% 5% 15% 15%;
+    grid-gap: 1vw;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgb(161, 161, 161);
+    margin-left: 34px;
+    margin-top: 10px;
+  }
+  
+  .users-main div:first-child {
+    border-top: 1px solid rgb(161, 161, 161);
+  }
+  
+  .users-main div:last-child {
+    border-bottom: 1px solid rgb(161, 161, 161);
+  }
+  
+  .tbl-btn {
+    height: 50%;
+    margin: 0 auto;
+    outline: none;
+    border: 1px solid rgb(161, 161, 161);
+  }
+  
+  .users-h2 {
+    padding-left: 34px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .edit-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .edit-form form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .users-main {
+      overflow: scroll;
+  }
+  
+  .edit-form input {
+    padding: 10px;
+    outline: none;
+    border: 1px solid black;
+  }
+  
+  .editwrap {
+    background-color: rgba(51, 51, 51, 0.90);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+  }
+  .edit-form {
+    width: 20%;
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    animation: pop 0.3s ease;
+    transform: translate(-50%, -50%)  scale(1.3);
+    opacity: 1;
+    background-color:white;
+  }
+  
+  
+  #edt-btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1%;
+  }
+  
+  #edt-btn-wrapper button {
+    width: 49.5%;
+  }
+  
+  
+  @keyframes pop {
+    0%{
+      transform: translate(-50%, -50%)  scale(0.1);
+    }
+  
+    10%{
+      opacity: 1;
+    }
+    100%{
+      transform: translate(-50%, -50%)  scale(1.3);
+      opacity: 1;
+    }
+  }
+  .users-main{
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+  
+  .users-main::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media all and (max-width:850px){
 .users-body{
   background-color: rgba(209, 201, 201, 0.536);
   display: grid;
-  grid-template-columns: 18% 80%;
+  grid-template-columns: 100%;
   height: 100vh;
   grid-column-gap: 2vh;
 }
@@ -28,7 +216,7 @@
 }
 
 .users-right {
-  grid-column: 2;
+  grid-column: 1;
   height: 100vh;
   display: grid;
   grid-template-columns: 100%;
@@ -37,23 +225,21 @@
 
 .users-header,
 .users-main {
-  background-color: var(--admlight);
+  background-color: var(--lightgray);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   color: var(--textlight);
   height: 100%;
 }
 
-.users-header h1 {
-  margin-left: 34px;
-}
+
 .users-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 30%;
+  width: 90%;
 }
 
 .users-form div {
@@ -82,8 +268,12 @@
   align-items: center;
   text-align: center;
   border: 1px solid rgb(161, 161, 161);
-  margin-left: 34px;
   margin-top: 10px;
+  justify-content: center;
+}
+
+.users-main div p:nth-child(2){
+  font-size: 2.5vw;
 }
 
 .users-main div:first-child {
@@ -102,8 +292,7 @@
 }
 
 .users-h2 {
-  padding-left: 34px;
-  margin: 0;
+  margin: 0 auto;
   display: flex;
   align-items: center;
 }
@@ -137,12 +326,11 @@
   inset: 0;
 }
 .edit-form {
-  width: 20%;
+  width: 55%;
   padding: 30px;
   position: absolute;
   left: 50%;
   top: 50%;
-  color: var(--textlight);
   animation: pop 0.3s ease;
   transform: translate(-50%, -50%)  scale(1.3);
   opacity: 1;
@@ -182,4 +370,13 @@
 
 .users-main::-webkit-scrollbar {
   display: none;
+}
+
+}
+
+
+@media all and (max-width:550px) {
+  .users-main div p:nth-child(2){
+    font-size: 3.3vw;
+  }
 }

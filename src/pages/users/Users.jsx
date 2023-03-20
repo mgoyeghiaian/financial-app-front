@@ -11,8 +11,24 @@ const Users = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [editName, setEditName] = useState('');
-const [editEmail, setEditEmail] = useState('');
-const [editPassword, setEditPassword] = useState('');
+  const [editEmail, setEditEmail] = useState('');
+  const [editPassword, setEditPassword] = useState('');
+  const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
+  const [menu_class, setMenuClass] = useState("menu hidden");
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
+
+  const updateMenu = () => {
+    if (!isMenuClicked){
+      setBurgerClass("burger-bar clicked")
+      setMenuClass("menu visible")
+    }
+
+    else {
+      setBurgerClass("burger-bar unclicked")
+      setMenuClass("menu hidden")
+    }
+    setIsMenuClicked(!isMenuClicked)
+  }
 
   useEffect(() => {
     loadAdmins();
@@ -89,8 +105,18 @@ const [editPassword, setEditPassword] = useState('');
   return (
     <div className="users-body">
       <div className="users-left">
-        <Navbar />
+      <div className={menu_class}>
+          <Navbar />
+        </div>
       </div>
+      <div className='header-mid'>
+              <div className='brgr-menu' onClick={updateMenu}>
+                <div className={burger_class}></div>
+                <div className={burger_class}></div>
+                <div className={burger_class}></div>
+              </div>
+              <h1 style={{opacity: isMenuClicked === true ? '0' : '1'}}>Financial App</h1>
+          </div>
       <div className="users-right">
         <header className="users-header">
           <h1>Add Users?</h1>

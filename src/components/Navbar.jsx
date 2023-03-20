@@ -8,6 +8,8 @@ import { MdManageAccounts } from "react-icons/md"
 import { useEffect } from 'react';
 const activePage = window.location
 console.log(activePage);
+
+const Navbar = () => {
 function changeTheme() {
   const root = document.documentElement;
   const currentTheme = localStorage.getItem('theme');
@@ -24,6 +26,7 @@ function changeTheme() {
     root.style.setProperty('--chart', 'white');
     localStorage.setItem('theme', 'light');
     setThemeOnLoad();
+    setIsChecked(false);
   } else {
     root.style.setProperty('--lightgray', '#4e4e4e');
     root.style.setProperty('--darkgray', 'gray');
@@ -36,6 +39,7 @@ function changeTheme() {
     root.style.setProperty('--chart', '#ebebeb');
     localStorage.setItem('theme', 'dark');
     setThemeOnLoad();
+    setIsChecked(true);
   }
 }
 
@@ -65,7 +69,10 @@ function setThemeOnLoad() {
   }
 }
 
-const Navbar = () => {
+
+  const [isChecked, setIsChecked] = React.useState(
+    localStorage.getItem('theme') === 'dark'
+  );
   const userType = sessionStorage.getItem('userType'); // or sessionStorage
   const handleLogout = () => {
     sessionStorage.removeItem('userToken');
@@ -96,7 +103,13 @@ const Navbar = () => {
               {userType === "1" ? <li><NavLink to="/users"><MdManageAccounts /><p>Users</p></NavLink ></li> : null}
             </ul>
             <div className='nav-manage-l'>
-              <button id="botton" className='theme'  onClick={changeTheme}>Theme</button>
+              <div id="botton" className='theme'>
+                <span>Theme</span>
+                <div className="checkbox-wrapper-34">
+                <input className='tgl tgl-ios' id='toggle-34' type='checkbox' defaultChecked={isChecked} onClick={changeTheme}/>
+                <label className='tgl-btn' htmlFor='toggle-34'></label>
+              </div>
+              </div>
               <button onClick={handleLogout} className='logout'>Log Out</button>
             </div>
           </div>

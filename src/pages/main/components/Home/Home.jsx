@@ -10,7 +10,7 @@ import Profitgoal from '../../../../components/Profitgoal'
 const Home = () => {
   const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
   const [menu_class, setMenuClass] = useState("menu hidden");
-  var [isMenuClicked, setIsMenuClicked] = useState(false);
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   const updateMenu = () => {
     if (!isMenuClicked){
@@ -32,12 +32,12 @@ const Home = () => {
         </div>
         <div className='home-middle'>
           <div className='header-mid'>
-              <div className='brgr-menu' onClick={updateMenu}>
+              <div style={{marginTop: isMenuClicked === true ? '-13px' : '0px'}}className='brgr-menu' onClick={updateMenu}>
                 <div className={burger_class}></div>
                 <div className={burger_class}></div>
                 <div className={burger_class}></div>
               </div>
-              <h1>Financial App</h1>
+              <h1 style={{opacity: isMenuClicked === true ? '0' : '1'}}>Financial App</h1>
           </div>
           <div className="home-mid-ch1"><Profitgoal /></div>
           <div className="home-mid-ch2"><Hero /></div>
