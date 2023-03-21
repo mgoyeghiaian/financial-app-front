@@ -22,9 +22,9 @@ function App() {
     <Routes>
       <Route path='/' element={<Login />} exact />
       <Route element={useAuth() ? <Outlet /> : <Navigate to="/" />}>
-        <Route path='home' element={<Home />} />
-        <Route path='income' element={<Income />} />
-        <Route path='expenses' element={<Expenses />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/income' element={<Income />} />
+        <Route path='/expenses' element={<Expenses />} />
       </Route>
       <Route element={useAdmin() ? <Outlet /> : <Navigate to="/home" />}>
         <Route path='users' element={<Users />} />
