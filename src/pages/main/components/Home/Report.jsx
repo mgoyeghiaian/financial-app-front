@@ -7,21 +7,22 @@ const Report = () => {
   const [reportData, setreportData] = useState([]);
   const [selectValue, setselectValue] = useState('');
   useEffect(() => {
+
+    const getReport = async () => {
+      let res;
+      if (selectValue === 'fixed') {
+        res = await axios.get("https://backend-production-05ef.up.railway.app/api/fixed")
+      }
+      if (selectValue === 'recurring') {
+        res = await axios.get("https://backend-production-05ef.up.railway.app/api/recurring")
+      }
+      const reportData = res.data.message.slice(-3).filter((item) => item.isDeleted === 0);
+      setreportData(reportData.reverse());
+    }
     getReport();
   }, [selectValue]);
 
 
-  const getReport = async () => {
-    let res;
-    if (selectValue === 'fixed') {
-      res = await axios.get("https://backend-production-05ef.up.railway.app/api/fixed")
-    }
-    if (selectValue === 'recurring') {
-      res = await axios.get("https://backend-production-05ef.up.railway.app/api/recurring")
-    }
-    const reportData = res.data.message.slice(-3).filter((item) => item.isDeleted === 0);
-    setreportData(reportData.reverse());
-  }
 
   console.log(reportData)
 
