@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes, } from 'react-router-dom';
+import { HashRouter, Route, Routes, } from 'react-router-dom';
 import { Navigate, Outlet } from "react-router-dom";
 import Login from './pages/login/Login';
 import Expenses from './pages/main/components/Expenses/Expenses';
@@ -19,7 +19,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path='/' element={<Login />} />
         <Route element={useAuth() ? <Outlet /> : <Navigate to="/" />}>
@@ -31,7 +31,7 @@ function App() {
           <Route path='/users' element={<Users />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
