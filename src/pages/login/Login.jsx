@@ -27,7 +27,7 @@ function Login() {
             sessionStorage.setItem('userType', response.data.user_type);
             sessionStorage.setItem('userToken', response.data.access_token);
             sessionStorage.setItem('expiresAt', expiresAt);
-            window.location.hash = "#/home";
+            window.location.href = "home";
           }
 
         })

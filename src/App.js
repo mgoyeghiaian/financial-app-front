@@ -1,11 +1,12 @@
 import './App.css';
-import { Route, Routes, } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, } from 'react-router-dom';
 import { Navigate, Outlet } from "react-router-dom";
 import Login from './pages/login/Login';
 import Expenses from './pages/main/components/Expenses/Expenses';
 import Home from './pages/main/components/Home/Home';
 import Income from './pages/main/components/Income/Income';
 import Users from "./pages/users/Users"
+import { HashRouter } from 'react-router-dom';
 
 function App() {
   const useAuth = () => {
@@ -19,18 +20,19 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route path='/' element={<Login />} exact />
-      <Route element={useAuth() ? <Outlet /> : <Navigate to="/" />}>
-        <Route path='/home' element={<Home />} />
-        <Route path='/income' element={<Income />} />
-        <Route path='/expenses' element={<Expenses />} />
-      </Route>
-      <Route element={useAdmin() ? <Outlet /> : <Navigate to="/home" />}>
-        <Route path='users' element={<Users />} />
-      </Route>
-    </Routes>
-
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Login />} exact />
+        <Route element={useAuth() ? <Outlet /> : <Navigate to="/" />}>
+          <Route path='home' element={<Home />} />
+          <Route path='income' element={<Income />} />
+          <Route path='expenses' element={<Expenses />} />
+        </Route>
+        <Route element={useAdmin() ? <Outlet /> : <Navigate to="home" />}>
+          <Route path='users' element={<Users />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
