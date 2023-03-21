@@ -78,7 +78,7 @@ const Navbar = () => {
     sessionStorage.removeItem('userToken');
     sessionStorage.removeItem('userType');
     sessionStorage.removeItem('expiresAt');
-    window.location.href = "home";
+    window.location.href = "/home";
   };
   useEffect(() => {
     setThemeOnLoad();
@@ -88,7 +88,7 @@ const Navbar = () => {
     <>
       <div className='navbar-body'>
         <div className='nav-logo'>
-          <Link to='/home'>
+          <Link to='#/home'>
             <img src={logo} alt='logo' />
           </Link>
           <h3>Financal app</h3>
