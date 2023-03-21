@@ -21,7 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/Fapp' element={<Login />} />
+        <Route path='/' element={<Login />} />
         <Route element={useAuth() ? <Outlet /> : <Navigate to="/" />}>
           <Route path='home' element={<Home />} />
           <Route path='income' element={<Income />} />
