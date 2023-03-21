@@ -6,7 +6,6 @@ import Expenses from './pages/main/components/Expenses/Expenses';
 import Home from './pages/main/components/Home/Home';
 import Income from './pages/main/components/Income/Income';
 import Users from "./pages/users/Users"
-import { HashRouter } from 'react-router-dom';
 
 function App() {
   const useAuth = () => {
