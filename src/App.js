@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes, } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes, } from 'react-router-dom';
 import { Navigate, Outlet } from "react-router-dom";
 import Login from './pages/login/Login';
 import Expenses from './pages/main/components/Expenses/Expenses';
@@ -19,17 +19,20 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route path='/' element={<Login />} />
-      <Route element={useAuth() ? <Outlet /> : <Navigate to="/" />}>
-        <Route path='/home' element={<Home />} />
-        <Route path='/income' element={<Income />} />
-        <Route path='/expenses' element={<Expenses />} />
-      </Route>
-      <Route element={useAdmin() ? <Outlet /> : <Navigate to="/home" />}>
-        <Route path='/users' element={<Users />} />
-      </Route>
-    </Routes>
+    <HashRouter>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route element={useAuth() ? <Outlet /> : <Navigate to="/" />}>
+          <Route path='/home' element={<Home />} />
+          <Route path='/income' element={<Income />} />
+          <Route path='/expenses' element={<Expenses />} />
+        </Route>
+        <Route element={useAdmin() ? <Outlet /> : <Navigate to="/home" />}>
+          <Route path='/users' element={<Users />} />
+        </Route>
+      </Routes>
+    </HashRouter>
+
   );
 }
 
