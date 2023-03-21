@@ -22,11 +22,11 @@ const Report = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (category === 'fixed') {
-      await axios.post('http://127.0.0.1:8000/api/fixed', {
+      await axios.post('https://backend-production-05ef.up.railway.app/api/fixed', {
         title, amount, enddate, isdeleted, category, type
       })
 
-      await axios.post('http://127.0.0.1:8000/api/report', {
+      await axios.post('https://backend-production-05ef.up.railway.app/api/report', {
         amount, isdeleted, category, type, title
       })
       setIsDeleted(false);
@@ -35,11 +35,11 @@ const Report = () => {
     }
 
     if (category === "recurring") {
-      await axios.post('http://127.0.0.1:8000/api/recurring', {
+      await axios.post('https://backend-production-05ef.up.railway.app/api/recurring', {
         title, amount, startdate, enddate, isdeleted, category, type
       })
 
-      await axios.post('http://127.0.0.1:8000/api/report', {
+      await axios.post('https://backend-production-05ef.up.railway.app/api/report', {
         title, amount, startdate, enddate, isdeleted, category, type
       })
       setIsDeleted(false);
@@ -59,14 +59,14 @@ const Report = () => {
 
 
   const getfixed = async () => {
-    const res = await axios.get("http://127.0.0.1:8000/api/fixed")
+    const res = await axios.get("https://backend-production-05ef.up.railway.app/api/fixed")
     setfixedData(res.data.message.filter(item => item.type === 'expense' && item.isDeleted === 0));
   }
 
 
 
   const getRecurring = async () => {
-    const res = await axios.get("http://127.0.0.1:8000/api/recurring")
+    const res = await axios.get("https://backend-production-05ef.up.railway.app/api/recurring")
     setRecurringData(res.data.message.filter(item => item.type === 'expense' && item.isDeleted === 0));
   }
 
@@ -74,10 +74,10 @@ const Report = () => {
   // delete Fixed & Recurring Part
   const handleDelete = async (category, id) => {
     if (category === 'fixed') {
-      await axios.delete(`http://127.0.0.1:8000/api/fixed/${id}`);
+      await axios.delete(`https://backend-production-05ef.up.railway.app/api/fixed/${id}`);
       getfixed();
     } else if (category === 'recurring') {
-      await axios.delete(`http://127.0.0.1:8000/api/recurring/${id}`);
+      await axios.delete(`https://backend-production-05ef.up.railway.app/api/recurring/${id}`);
       getRecurring();
     }
 
@@ -168,7 +168,7 @@ const Report = () => {
               <button type="button" id="deletR" onClick={() => handleDelete(item.category, item.id)}>Delete</button>
             </div>
           ))}
-        </div>  
+        </div>
       </div>
     </div>
   );

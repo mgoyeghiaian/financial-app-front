@@ -18,7 +18,7 @@ const Targetgoal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://127.0.0.1:8000/api/profitgoal', {
+      await axios.post('https://backend-production-05ef.up.railway.app/api/profitgoal', {
         netprofit: netProfit,
         isdeleted: isDeleted,
       });
@@ -32,20 +32,20 @@ const Targetgoal = () => {
 
 
   const getProfityear = async (year) => {
-    const res = await axios.get(`http://127.0.0.1:8000/api/profitgoal?year=${year}`);
+    const res = await axios.get(`https://backend-production-05ef.up.railway.app/api/profitgoal?year=${year}`);
     const filteredData = res.data.message.filter((item) => item.year === year && item.isDeleted === 0);
     setData(filteredData);
 
   };
 
   const getFixedyear = async (year) => {
-    const res = await axios.get(`http://127.0.0.1:8000/api/fixedf?year=${year}`);
+    const res = await axios.get(`https://backend-production-05ef.up.railway.app/api/fixedf?year=${year}`);
     const filteredFidexData = res.data;
     setFixedData(filteredFidexData);
 
   };
   const getRecurringyear = async (year) => {
-    const res = await axios.get(`http://127.0.0.1:8000/api/recurringf?year=${year}`);
+    const res = await axios.get(`https://backend-production-05ef.up.railway.app/api/recurringf?year=${year}`);
     const filteredRecurringData = res.data;
     setRecurringData(filteredRecurringData);
 
@@ -70,7 +70,7 @@ const Targetgoal = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/profitgoal/${id}`);
+      await axios.delete(`https://backend-production-05ef.up.railway.app/api/profitgoal/${id}`);
       getProfityear(selectedYear);
     } catch (error) {
       console.error(error);

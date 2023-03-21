@@ -16,7 +16,7 @@ function Login() {
     if (csrfToken) {
       const token = csrfToken.getAttribute('content');
       axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
-      await axios.post('http://127.0.0.1:8000/api/login', { email, password })
+      await axios.post("https://backend-production-05ef.up.railway.app/api/login", { email, password })
         .then((response) => {
           const expiresIn = 86400; // 1 day in seconds
           const expiresAt = moment().add(expiresIn, 'seconds');

@@ -35,7 +35,7 @@ const Users = () => {
   }, []);
 
   const loadAdmins = async () => {
-    const result = await axios.get('http://localhost:8000/api/users');
+    const result = await axios.get('https://backend-production-05ef.up.railway.app//api/users');
     const latest1 = result.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
@@ -49,7 +49,7 @@ const Users = () => {
         Authorization: `Bearer ${token}`,
       },
     };
-    await axios.delete(`http://localhost:8000/api/users/${id}`, config);
+    await axios.delete(`https://backend-production-05ef.up.railway.app//api/users/${id}`, config);
     loadAdmins();
   };
   const handleEdit = (admin) => {
@@ -67,7 +67,7 @@ const Users = () => {
         Authorization: `Bearer ${token}`,
       },
     };
-    await axios.put(`http://localhost:8000/api/users/${selectedAdmin.id}`, {
+    await axios.put(`https://backend-production-05ef.up.railway.app//api/users/${selectedAdmin.id}`, {
       name: editName,
       email: editEmail,
       password: editPassword,
@@ -90,7 +90,7 @@ const Users = () => {
       },
     };
     try {
-      await axios.post('http://localhost:8000/api/register', formData, config);
+      await axios.post('https://backend-production-05ef.up.railway.app//api/register', formData, config);
       loadAdmins();
       e.target.reset();
     } catch (error) {

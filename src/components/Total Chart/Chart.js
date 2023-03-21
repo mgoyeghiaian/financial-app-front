@@ -9,8 +9,8 @@ const Chart = () => {
   useEffect(() => {
     const fetchData = async () => {
       const [fixedData, recurringData] = await Promise.all([
-        axios.get(`http://localhost:8000/api/fixed${selectedYear ? `?year=${selectedYear}` : ''}`),
-        axios.get(`http://localhost:8000/api/recurring${selectedYear ? `?year=${selectedYear}` : ''}`)
+        axios.get(`https://backend-production-05ef.up.railway.app/api/fixed${selectedYear ? `?year=${selectedYear}` : ''}`),
+        axios.get(`https://backend-production-05ef.up.railway.app/api/recurring${selectedYear ? `?year=${selectedYear}` : ''}`)
       ]);
       setDataf(fixedData.data.message.filter((item) => item.isDeleted === 0));
       setDatar(recurringData.data.message.filter((item) => item.isDeleted === 0));

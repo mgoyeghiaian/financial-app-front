@@ -14,11 +14,12 @@ const Report = () => {
   const getReport = async () => {
     let res;
     if (selectValue === 'fixed') {
-      res = await axios.get("http://127.0.0.1:8000/api/fixed")
+      res = await axios.get("https://backend-production-05ef.up.railway.app/api/fixed")
     }
     if (selectValue === 'recurring') {
-      res = await axios.get("http://127.0.0.1:8000/api/recurring")
+      res = await axios.get("https://backend-production-05ef.up.railway.app/api/recurring")
     }
+
     const reportData = res.data.message.slice(-3).filter((item) => item.isDeleted === 0);
     setreportData(reportData.reverse());
   }
@@ -37,17 +38,23 @@ const Report = () => {
             <option value='recurring'>Recurring</option>
           </select>
         </div>
-        {reportData.map((item, index) => (
-          <div className='home-report-data' key={index}>
-            <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.title} </p>
-            <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.type} </p>
-            <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.category}</p>
-            <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.amount}$</p>
-          </div>
+        {selectValue ? (
 
-        ))}
+          reportData.map((item, index) => (
+            <div className='home-report-data' key={index}>
+              <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.title} </p>
+              <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.type} </p>
+              <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.category}</p>
+              <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.amount}$</p>
+            </div>
+
+          ))
+
+        ) : (
+          <h4 className='h4-tgcard'>Please select a type to see the data.</h4>
+        )}
       </div>
-    </div >
+    </div>
 
   )
 }
