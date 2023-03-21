@@ -19,7 +19,6 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login />} exact />
         <Route element={useAuth() ? <Outlet /> : <Navigate to="/" />}>
@@ -31,7 +30,6 @@ function App() {
           <Route path='users' element={<Users />} />
         </Route>
       </Routes>
-    </BrowserRouter>
 
   );
 }
