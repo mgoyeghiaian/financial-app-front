@@ -3,13 +3,13 @@ import { useState, useEffect, useRef } from 'react';
 import './Login.css';
 import axios from 'axios';
 import moment from 'moment';
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const carouselRef = useRef(null);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const csrfToken = document.querySelector('meta[name="csrf-token"]');
@@ -27,7 +27,7 @@ function Login() {
             sessionStorage.setItem('userType', response.data.user_type);
             sessionStorage.setItem('userToken', response.data.access_token);
             sessionStorage.setItem('expiresAt', expiresAt);
-            window.location.href = "home";
+            window.location.href = "/home";
           }
 
         })
