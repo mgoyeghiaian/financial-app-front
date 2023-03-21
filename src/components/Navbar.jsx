@@ -78,7 +78,7 @@ const Navbar = () => {
     sessionStorage.removeItem('userToken');
     sessionStorage.removeItem('userType');
     sessionStorage.removeItem('expiresAt');
-    window.location.href = "/home";
+    window.location.href = "home";
   };
   useEffect(() => {
     setThemeOnLoad();
