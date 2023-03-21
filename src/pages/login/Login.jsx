@@ -24,10 +24,10 @@ function Login() {
 
           if ((response.data.status = 201)) {
             console.log(response.data);
+            window.location.href = "/home";
             sessionStorage.setItem('userType', response.data.user_type);
             sessionStorage.setItem('userToken', response.data.access_token);
             sessionStorage.setItem('expiresAt', expiresAt);
-            window.location.href = "/home";
           }
 
         })

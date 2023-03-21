@@ -20,7 +20,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/test' element={<Login />} />
+      <Route path='/' element={<Login />} />
       <Route element={useAuth() ? <Outlet /> : <Navigate to="/" />}>
         <Route path='/home' element={<Home />} />
         <Route path='/income' element={<Income />} />
