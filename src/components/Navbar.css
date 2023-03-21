@@ -1,9 +1,166 @@
+@media all and (max-width:850px){
+
+  .navbar-body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--lightgray);
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .nav-logo{
+    display: grid;
+    grid-template-columns: 75px 125px;
+    grid-template-rows: 100px;
+    border-bottom: 1px solid black;
+  }
+  
+  .nav-logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+  }
+  
+  .nav-logo h3 {
+    align-self: center;
+    color: var(--textlight);
+  }
+  
+  .nav-logo a {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+  
+  
+  /* For Manage Section */
+  
+  .nav-manage{
+    text-align: center;
+    margin-top: 70px;
+  }
+  
+  .nav-manage-list{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav-manage-l {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15vh;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .nav-manage-l button {
+    width: 40%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-radius: 35px;
+    outline: none;
+    border: none;
+    transition: 0.2s;
+    background-color: var(--btn-hvr);
+    color: var(--text);
+  }
+  
+  .nav-manage-l button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 3px 5px var(--btn-hvrt);
+  }
+  
+  .nav-manage-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-manage-list li {
+      width: 50%;
+      margin-left: 3.3vw;
+    }
+  
+  .nav-manage-list li a svg{
+   margin-right: 10px;
+  }
+  .nav-manage-list a {
+    color: var(--textlight);
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: center;
+  }
+  
+  .nav-manage-list a:hover {
+    color: rgb(161, 161, 161);
+  }
+  
+  
+  
+  /* For Preferences Section */
+  
+  .nav-preferences{
+    text-align: center;
+  }
+  
+  .navbar-body h2 {
+    color: var(--textlight);
+  }
+  
+  .nav-preferences-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-preferences-list li {
+    margin-bottom: 10px;
+    padding: 5px;
+  
+    text-decoration: none;
+  }
+  
+  .nav-preferences-list a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .nav-preferences-list a:hover {
+    color: rgba(0, 0, 0, 0.721);
+    
+  }
+  
+  .nav-preferences-list li a svg{
+    margin-right: 10px;
+   }
+  
+  
+
+  .navbar-body li {
+    font-size: 17px;
+}
+}
+
+@media all and (min-width:851px){
+
 .navbar-body{
-display: flex;
-flex-direction: column;
-background-color: var(--lightgray);
-width: 100%;
-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--lightgray);
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 .nav-logo{
@@ -45,15 +202,30 @@ height: 100%;
 .nav-manage-l {
   display: flex;
   flex-direction: column;
-  margin-top: 20vh;
+  margin-top: 15vh;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
 .nav-manage-l button {
-  width: 50%;
-  padding: 7px;
+  width: 40%;
+  justify-content: center;
+  font-size: 1.3vw;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 35px;
+  outline: none;
+  border: none;
+  transition: 0.2s;
+  background-color: var(--btn-hvr);
+  color: var(--text);
+}
+
+.nav-manage-l button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 3px 5px var(--btn-hvrt);
 }
 
 .nav-manage-list ul {
@@ -120,7 +292,7 @@ height: 100%;
 }
 
 .navbar-body li {
-  font-size: 1.2vw;
+  font-size: 1.3vw;
 }
 
 .nav-preferences-list a:hover {
@@ -132,6 +304,109 @@ height: 100%;
   margin-right: 10px;
  }
 
-.users-right {
-  border-left: 1px solid black;
+.theme {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+}
+
+.checkbox-wrapper-34 {
+  --blue: #0D7EFF;
+  --g08: #E1E5EB;
+  --g04: #848ea1;
+}
+
+.checkbox-wrapper-34 .tgl {
+  display: none;
+}
+.checkbox-wrapper-34 .tgl,
+.checkbox-wrapper-34 .tgl:after,
+.checkbox-wrapper-34 .tgl:before,
+.checkbox-wrapper-34 .tgl *,
+.checkbox-wrapper-34 .tgl *:after,
+.checkbox-wrapper-34 .tgl *:before,
+.checkbox-wrapper-34 .tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+.checkbox-wrapper-34 .tgl::selection,
+.checkbox-wrapper-34 .tgl:after::selection,
+.checkbox-wrapper-34 .tgl:before::selection,
+.checkbox-wrapper-34 .tgl *::selection,
+.checkbox-wrapper-34 .tgl *:after::selection,
+.checkbox-wrapper-34 .tgl *:before::selection,
+.checkbox-wrapper-34 .tgl + .tgl-btn::selection {
+  background: none;
+}
+.checkbox-wrapper-34 .tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 67px;
+  height: 27px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+}
+.checkbox-wrapper-34 .tgl + .tgl-btn:after,
+.checkbox-wrapper-34 .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 44%;
+  height: 100%;
+}
+.checkbox-wrapper-34 .tgl + .tgl-btn:after {
+  left: 0;
+}
+.checkbox-wrapper-34 .tgl + .tgl-btn:before {
+  display: inline;
+  position: absolute;
+  top: 7px;
+  margin-left: 4px;
+}
+.checkbox-wrapper-34 .tgl:checked + .tgl-btn:after {
+  left: 56.5%;
+}
+
+.checkbox-wrapper-34 .tgl-ios + .tgl-btn {
+  background: var(--g08);
+  border-radius: 20rem;
+  padding: 2px;
+  transition: all 0.4s ease;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.checkbox-wrapper-34 .tgl-ios + .tgl-btn:after {
+  border-radius: 2em;
+  background: #fff;
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+.checkbox-wrapper-34 .tgl-ios + .tgl-btn:before {
+  content: "Light";
+  left: 28px;
+  color: var(--g04);
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.checkbox-wrapper-34 .tgl-ios + .tgl-btn:active {
+  box-shadow: inset 0 0 0 30px rgba(0, 0, 0, 0.1);
+}
+.checkbox-wrapper-34 .tgl-ios + .tgl-btn:active:after {
+  padding-right: 0.4em;
+}
+.checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn {
+  background: var(--blue);
+}
+.checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn:active {
+  box-shadow: inset 0 0 0 30px rgba(0, 0, 0, 0.1);
+}
+.checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn:active:after {
+  margin-left: -0.4em;
+}
+.checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn:before {
+  content: "Dark";
+  left: 4px;
+  color: #fff;
 }

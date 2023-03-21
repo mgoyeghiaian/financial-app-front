@@ -11,15 +11,31 @@ const Users = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [editName, setEditName] = useState('');
-const [editEmail, setEditEmail] = useState('');
-const [editPassword, setEditPassword] = useState('');
+  const [editEmail, setEditEmail] = useState('');
+  const [editPassword, setEditPassword] = useState('');
+  const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
+  const [menu_class, setMenuClass] = useState("menu hidden");
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
+
+  const updateMenu = () => {
+    if (!isMenuClicked) {
+      setBurgerClass("burger-bar clicked")
+      setMenuClass("menu visible")
+    }
+
+    else {
+      setBurgerClass("burger-bar unclicked")
+      setMenuClass("menu hidden")
+    }
+    setIsMenuClicked(!isMenuClicked)
+  }
 
   useEffect(() => {
     loadAdmins();
   }, []);
 
   const loadAdmins = async () => {
-    const result = await axios.get('http://localhost:8000/api/users');
+    const result = await axios.get('https://backend-production-05ef.up.railway.app/api/users');
     const latest1 = result.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
@@ -33,7 +49,7 @@ const [editPassword, setEditPassword] = useState('');
         Authorization: `Bearer ${token}`,
       },
     };
-    await axios.delete(`http://localhost:8000/api/users/${id}`, config);
+    await axios.delete(`https://backend-production-05ef.up.railway.app/api/users/${id}`, config);
     loadAdmins();
   };
   const handleEdit = (admin) => {
@@ -51,7 +67,7 @@ const [editPassword, setEditPassword] = useState('');
         Authorization: `Bearer ${token}`,
       },
     };
-    await axios.put(`http://localhost:8000/api/users/${selectedAdmin.id}`, {
+    await axios.put(`https://backend-production-05ef.up.railway.app/api/users/${selectedAdmin.id}`, {
       name: editName,
       email: editEmail,
       password: editPassword,
@@ -74,7 +90,7 @@ const [editPassword, setEditPassword] = useState('');
       },
     };
     try {
-      await axios.post('http://localhost:8000/api/register', formData, config);
+      await axios.post('https://backend-production-05ef.up.railway.app/api/register', formData, config);
       loadAdmins();
       e.target.reset();
     } catch (error) {
@@ -89,7 +105,17 @@ const [editPassword, setEditPassword] = useState('');
   return (
     <div className="users-body">
       <div className="users-left">
-        <Navbar />
+        <div className={menu_class}>
+          <Navbar />
+        </div>
+      </div>
+      <div className='header-mid'>
+        <div className='brgr-menu' onClick={updateMenu}>
+          <div className={burger_class}></div>
+          <div className={burger_class}></div>
+          <div className={burger_class}></div>
+        </div>
+        <h1 style={{ opacity: isMenuClicked === true ? '0' : '1' }}>Financial App</h1>
       </div>
       <div className="users-right">
         <header className="users-header">
@@ -119,11 +145,11 @@ const [editPassword, setEditPassword] = useState('');
             </div>
             <div>
               <label htmlFor="password">Password:</label>
-              <input 
-                type="password" 
-                id="password" 
-                name="password" 
-                required 
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -151,53 +177,53 @@ const [editPassword, setEditPassword] = useState('');
         </main>
         {showEdit && (
           <div className='editwrap'>
-          <div className="edit-form">
-            <h2>Edit User</h2>
-            <form onSubmit={handleSave}>
-              <div>
-                <label htmlFor="name">Name:</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={editName}
-                  onChange={(e) => setEditName(e.target.value)}
-                />
-              </div>
-              <div>
-                <label htmlFor="email">Email:</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={editEmail}
-                  onChange={(e) => setEditEmail(e.target.value)}
-                />
-              </div>
-              <div>
-                <label htmlFor="password">Password:</label>
-                <input 
-                  type="password" 
-                  id="password" 
-                  name="password" 
-                  required 
-                  value={editPassword}
-                  onChange={(e) => setEditPassword(e.target.value)}
-                />
-              </div>
-              <div id='edt-btn-wrapper'>
-                <button type="submit">Save</button>
-                <button type="button" onClick={handleCancel}>Cancel</button>
-              </div>
-            </form>
-          </div>
+            <div className="edit-form">
+              <h2>Edit User</h2>
+              <form onSubmit={handleSave}>
+                <div>
+                  <label htmlFor="name">Name:</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={editName}
+                    onChange={(e) => setEditName(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email">Email:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={editEmail}
+                    onChange={(e) => setEditEmail(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="password">Password:</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    value={editPassword}
+                    onChange={(e) => setEditPassword(e.target.value)}
+                  />
+                </div>
+                <div id='edt-btn-wrapper'>
+                  <button type="submit">Save</button>
+                  <button type="button" onClick={handleCancel}>Cancel</button>
+                </div>
+              </form>
+            </div>
           </div>
         )}
-        </div>
+      </div>
     </div>
   )
 }
 
- export default Users
+export default Users

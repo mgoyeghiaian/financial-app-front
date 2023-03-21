@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Logob from '../assets/Logo-bRound.png'
@@ -10,7 +9,7 @@ const Profitgoal = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/profitgoalf')
+    axios.get('https://backend-production-05ef.up.railway.app/api/profitgoalf')
       .then(response => setData(response.data))
       .catch(error => console.log(error));
   }, []);
@@ -36,13 +35,13 @@ const Profitgoal = () => {
         <h2>Total Profit</h2>
         <p>${totalProfit}</p>
       </div>
-      <div className='profit-card2'>
+      <div className='profit-card'>
         <img src={Logow} alt='' />
         <h2>Total Expenses</h2>
         <p>$ {expensestotal}</p>
       </div>
 
-      <div className='profit-card2'>
+      <div className='profit-card'>
         <img src={Logow} alt='' />
         <h2>Total Income</h2>
         <p> ${Incometotal}</p>

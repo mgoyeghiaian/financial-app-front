@@ -1,5 +1,6 @@
+@media all and (min-width:851px) {
 .expenses-body{
-  background-color: rgba(209, 201, 201, 0.536);
+  background-color: var(--darkgray);
   display: grid;
   grid-template-columns: 18% 80%;
   grid-column-gap: 1.5%;
@@ -20,6 +21,8 @@ margin-top: 22px;
   height: 100%;
 }
 
+
+
 .ex-report-card h1{
  font-size: 2vh;
 }
@@ -33,4 +36,47 @@ margin-top: 22px;
   height: 100%;
 }
 
+#tbl-hd {
+  border-radius: 0px;
+  border: none;
+  border-bottom: 1px solid var(--textlight);
+}
 
+#tbl-hd h3 {
+  color: var(--textlight);
+  font-size: clamp(1.125rem, 0.7097rem + 0.7809vw, 2.125rem);
+}
+}
+
+
+@media all and (max-width:850px) {
+  .expenses-body{
+    background-color: var(--darkgray);
+    color: var(--textlight);
+  }
+  
+  #tbl-hd {
+    display: none;
+  }
+  .ex-report-body{
+    display: flex;
+    height: 95%;
+  }
+  .ex-report-card{
+    width: 99%;
+  margin-top: 22px; 
+   background-color: var(--lightgray);
+    border-radius: 35px ;
+    height: 100%;
+  }
+  
+  
+  
+  .ex-report-card h1{
+   font-size: 2vh;
+  }
+  
+  .expenses-left {
+    grid-column: 1;
+  }
+  }

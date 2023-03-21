@@ -6,25 +6,23 @@ const Chart = () => {
   const [dataf, setDataf] = useState([]);
   const [datar, setDatar] = useState([]);
   const [selectedYear, setSelectedYear] = useState('');
-
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const [fixedData, recurringData] = await Promise.all([
-          axios.get(`http://localhost:8000/api/fixed${selectedYear ? `?year=${selectedYear}` : ''}`),
-          axios.get(`http://localhost:8000/api/recurring${selectedYear ? `?year=${selectedYear}` : ''}`)
-        ]);
-        setDataf(fixedData.data.message);
-        setDatar(recurringData.data.message);
-      } catch (error) {
-        console.error(error);
-      }
+      const [fixedData, recurringData] = await Promise.all([
+        axios.get(`https://backend-production-05ef.up.railway.app/api/fixed${selectedYear ? `?year=${selectedYear}` : ''}`),
+        axios.get(`https://backend-production-05ef.up.railway.app/api/recurring${selectedYear ? `?year=${selectedYear}` : ''}`)
+      ]);
+      setDataf(fixedData.data.message.filter((item) => item.isDeleted === 0));
+      setDatar(recurringData.data.message.filter((item) => item.isDeleted === 0));
     };
 
     fetchData();
   }, [selectedYear]);
+
+  //to show all the months
+  // Format data function
   const formatData = () => {
-    const data = [...dataf, ...datar];
+    const data = [...dataf, ...datar].sort((a, b) => new Date(a.endDate) - new Date(b.endDate));
 
     const monthlyData = new Array(12).fill().map((_, i) => ({
       month: new Date(selectedYear, i).toLocaleString('default', { month: 'long' }),
@@ -34,7 +32,7 @@ const Chart = () => {
     }));
 
     let totalPrevious = 0;
-
+    ////////////////
     for (let i = 0; i < 12; i++) {
       const monthData = monthlyData[i];
 
@@ -46,6 +44,7 @@ const Chart = () => {
       );
 
       if (dataExistsForMonth) {
+        //  for income bar
         const monthlyIncome = data
           .filter(
             (item) =>
@@ -53,9 +52,10 @@ const Chart = () => {
               new Date(item.endDate).getFullYear() === parseInt(selectedYear) &&
               new Date(item.endDate).getMonth() === i
           )
-          .reduce((acc, item) => acc + parseFloat(item.amount), 0) + totalPrevious;
+          .reduce((acc, item) => acc + parseFloat(item.amount), 0);
 
-        const monthlyExpense = data
+        //  for expense bar
+        const monthlyExpense = -1 * data
           .filter(
             (item) =>
               item.type === 'expense' &&
@@ -64,40 +64,57 @@ const Chart = () => {
           )
           .reduce((acc, item) => acc + parseFloat(item.amount), 0);
 
-        totalPrevious = monthlyIncome - monthlyExpense;
-
-        const monthlyResult = monthlyIncome - monthlyExpense;
-
+        totalPrevious = totalPrevious + monthlyIncome + monthlyExpense;
+        //  for result bar
         monthData.income = monthlyIncome;
         monthData.expense = monthlyExpense;
-        monthData.result = monthlyResult;
+        monthData.result = totalPrevious;
       }
     }
 
     return monthlyData;
   };
+
   const chartData = formatData();
+  //Date Selector Function 
+  const currentYear = new Date().getFullYear();
+  const yearOptions = [];
+  for (let year = 2018; year <= currentYear; year++) {
+    yearOptions.push(
+      <option key={year} value={year}>
+        {year}
+      </option>
+    );
+  }
+  // Date Selector Finish here
+
+  const handleYearChange = (event) => {
+    setSelectedYear(event.target.value)
+
+  }
+
+
 
   return (
     <>
+
       <div>
-        <select id='year-input' onChange={(e) => setSelectedYear(e.target.value)}>
-          <option value=''>Select Year</option>
-          <option value='2021'>2021</option>
-          <option value='2022'>2022</option>
-          <option value='2023'>2023</option>
+        <select id='year-input' value={selectedYear} onChange={handleYearChange}>
+          <option value="">Select a year</option>
+          {yearOptions}
         </select>
       </div>
+
       {selectedYear ? (
         <ResponsiveContainer width="100%" height="90%">
           <BarChart data={chartData}>
             <XAxis dataKey='month' />
-            <YAxis />
+            <YAxis domain={['auto', 'auto']} />
             <CartesianGrid strokeDasharray="3 2" />
             <Tooltip />
-            <Bar dataKey="income" fill="green" radius={8} />
-            <Bar dataKey="expense" fill="red" radius={8} />
-            <Bar dataKey="result" fill="blue" radius={8} />
+            <Bar dataKey="income" fill="#3C763D" radius={8} />
+            <Bar dataKey="expense" fill="#A94442" radius={8} />
+            <Bar dataKey="result" fill="#31708F" radius={8} />
             <Legend />
           </BarChart>
         </ResponsiveContainer>

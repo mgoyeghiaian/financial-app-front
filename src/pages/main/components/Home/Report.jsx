@@ -1,59 +1,61 @@
-import React from 'react'
-import "./home.css"
+import React from 'react';
+import "./home.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Report = () => {
-  const [fixedData, setFixedData] = useState([]);
-  const [recurring, setREcurringData] = useState([]);
-
+  const [reportData, setreportData] = useState([]);
+  const [selectValue, setselectValue] = useState('');
   useEffect(() => {
-    getfixed()
-  }, []);
-  useEffect(() => {
-    getrecurring()
-  }, []);
+    getReport();
+  }, [selectValue]);
 
-  const getfixed = async () => {
-    const res = await axios.get("http://127.0.0.1:8000/api/fixed")
-    setFixedData(res.data.message.slice(-2));
 
+  const getReport = async () => {
+    let res;
+    if (selectValue === 'fixed') {
+      res = await axios.get("https://backend-production-05ef.up.railway.app/api/fixed")
+    }
+    if (selectValue === 'recurring') {
+      res = await axios.get("https://backend-production-05ef.up.railway.app/api/recurring")
+    }
+    const reportData = res.data.message.slice(-3).filter((item) => item.isDeleted === 0);
+    setreportData(reportData.reverse());
   }
 
-  console.log(fixedData)
-  const getrecurring = async () => {
-    const res = await axios.get("http://127.0.0.1:8000/api/recurring")
-    setREcurringData(res.data.message.slice(-1));
-  }
-  console.log(recurring)
+  console.log(reportData)
+
 
   return (
     <div className='home-report-body'>
       <div className='home-report-card'>
-        <h3>Report</h3>
-        {fixedData.map((item, index) => (
-          <div className='home-report-data' key={index}>
-            <p> {item.type} </p>
-            <p> {item.category}</p>
-            <p> {item.title} </p>
-            <p> {item.amount}$ </p>
-          </div>
+        <div className='report-select'>
+          <label htmlFor='report-type'></label>
+          <select id='year-input' value={selectValue} onChange={(e) => setselectValue(e.target.value)}>
+            <option value=''>Select Report Type</option>
+            <option value='fixed'>Fixed</option>
+            <option value='recurring'>Recurring</option>
+          </select>
+        </div>
+        {selectValue ? (
 
-        ))}
-        {
-          recurring.map((item, index) => (
+          reportData.map((item, index) => (
             <div className='home-report-data' key={index}>
-              <p>{item.type} </p>
-              <p>{item.category}</p>
-              <p>{item.title} </p>
-              <p>{item.amount}$ </p>
+              <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.title} </p>
+              <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.type} </p>
+              <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.category}</p>
+              <p style={{ color: item.type === 'expense' ? 'red' : 'rgb(0 189 211)' }}> {item.amount}$</p>
             </div>
+
           ))
-        }
+
+        ) : (
+          <h4 className='h4-tgcard'>Please select a type to see the data.</h4>
+        )}
       </div>
     </div>
 
   )
 }
 
-export default Report
+export default Report;

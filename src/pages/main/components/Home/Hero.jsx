@@ -9,7 +9,7 @@ const Hero = () => {
       <div className='home-hero-card'>
         <Chart />
       </div>
-    </div >
+    </div>
   )
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import Chart from '../../../../components/Total Chart/Chart'
-import { useState } from 'react';
 
 
 const Hero = () => {
