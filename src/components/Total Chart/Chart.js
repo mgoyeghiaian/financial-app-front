@@ -5,7 +5,7 @@ import axios from 'axios';
 const Chart = () => {
   const [dataf, setDataf] = useState([]);
   const [datar, setDatar] = useState([]);
-  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedYear, setSelectedYear] = useState('2023');
   useEffect(() => {
     const fetchData = async () => {
       const [fixedData, recurringData] = await Promise.all([

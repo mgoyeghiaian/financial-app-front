@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import './home.css';
 import { useState } from 'react';
 import axios from 'axios';
+
 const Targetgoal = () => {
   const [netProfit, setNetProfit] = useState('');
   const [isDeleted, setIsDeleted] = useState(false);
   const [data, setData] = useState([]);
-  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedYear, setSelectedYear] = useState('2023');
   const [Fixeddata, setFixedData] = useState([]);
   const [Recurringdata, setRecurringData] = useState([]);
 
@@ -113,7 +114,7 @@ const Targetgoal = () => {
               data.length ? (
                 data.map((item, index) => (
                   <div key={index} className="trgt-gl">
-                    <h4>Target Amount</h4>
+                    <h4>Target Amount  </h4>
                     <span>${item.netProfit}</span>
                     <h4>Total Profit</h4>
                     <span>${total_amount}</span>

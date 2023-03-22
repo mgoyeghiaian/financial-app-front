@@ -6,6 +6,24 @@
   margin-top: 15px;
   margin-bottom: 15px;
 }
+.loader{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(224, 204, 204, 0.648);
+  height: 100vh;
+}
+.loading{
+  position: relative;
+  right: 180px;
+}
+
+.loader-img{
+position: relative;
+bottom: 60px;
+}
+
 @media all and (max-width:850px){
   .home-left {
     position: absolute;

@@ -46,7 +46,11 @@ const Report = () => {
       setType('expense')
       getRecurring();
     }
-
+    setTitle('');
+    setAmount('');
+    setstartDate('');
+    setendDate('');
+    setCategory('');
   };
 
 
@@ -127,7 +131,7 @@ const Report = () => {
                 id="category"
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option>Select Category</option>
+                <option value=''>Select Category</option>
                 <option value="fixed">Fixed</option>
                 <option value="recurring">Recurring</option>
               </select></label>
@@ -140,12 +144,12 @@ const Report = () => {
         <div className="inc-ex-data">
           {/* Fixed Part */}
           <div id="tbl-hd">
-              <h3>Type</h3>
-              <h3>Title</h3>
-              <h3>Amount</h3>
-              <h3>Start-Date</h3>
-              <h3>End-Date</h3>
-              <h3>Category</h3>
+            <h3>Type</h3>
+            <h3>Title</h3>
+            <h3>Amount</h3>
+            <h3>Start-Date</h3>
+            <h3>End-Date</h3>
+            <h3>Category</h3>
           </div>
           {fixedData.map((item, index) => (
             <div key={index}>
