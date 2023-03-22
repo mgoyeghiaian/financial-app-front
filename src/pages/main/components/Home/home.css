@@ -16,12 +16,12 @@
 }
 .loading{
   position: relative;
-  right: 180px;
+  right: 130px;
 }
 
 .loader-img{
 position: relative;
-bottom: 60px;
+bottom: 40px;
 }
 
 @media all and (max-width:850px){

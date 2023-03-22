@@ -7,7 +7,7 @@ import Targetgoal from './Targetgoal'
 import "./home.css"
 import Profitgoal from '../../../../components/Profitgoal'
 import PropagateLoader from "react-spinners/PropagateLoader";
-import Logo from "../../../../assets/New Project .png"
+import Logo from "../../../../assets/New Project.png"
 const Home = () => {
   const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
   const [menu_class, setMenuClass] = useState("menu hidden");
@@ -30,7 +30,7 @@ const Home = () => {
     setLoader(true);
     setTimeout(() => {
       setLoader(false);
-    }, 5000)
+    }, 50000)
   }, [])
   return (
     <>

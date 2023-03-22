@@ -91,7 +91,7 @@ const Navbar = () => {
           <Link to='/home'>
             <img src={logo} alt='logo' />
           </Link>
-          <h3>Financal app</h3>
+          <h3>Financial App</h3>
         </div>
         <div className='nav-manage'>
           <h2>Manage</h2>
