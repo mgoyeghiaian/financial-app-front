@@ -30,7 +30,7 @@ const Home = () => {
     setLoader(true);
     setTimeout(() => {
       setLoader(false);
-    }, 50000)
+    }, 6000)
   }, [])
   return (
     <>
