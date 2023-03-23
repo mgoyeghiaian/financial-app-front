@@ -190,6 +190,7 @@ const Users = () => {
                     value={editName}
                     onChange={(e) => setEditName(e.target.value)}
                   />
+                  <div className='maker-input'></div>
                 </div>
                 <div>
                   <label htmlFor="email">Email:</label>
@@ -201,6 +202,7 @@ const Users = () => {
                     value={editEmail}
                     onChange={(e) => setEditEmail(e.target.value)}
                   />
+                <div className='maker-input'></div>
                 </div>
                 <div>
                   <label htmlFor="password">Password:</label>
@@ -212,6 +214,7 @@ const Users = () => {
                     value={editPassword}
                     onChange={(e) => setEditPassword(e.target.value)}
                   />
+                  <div className='maker-input'></div>
                 </div>
                 <div id='edt-btn-wrapper'>
                   <button type="submit">Save</button>

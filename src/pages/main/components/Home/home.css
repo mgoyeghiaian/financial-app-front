@@ -107,6 +107,13 @@ bottom: 40px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
   }
+
+  .home-report-data:first-child {
+    border-top:  1px solid var(--textlight);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+
   .home-report-data:last-child {
     border-bottom:  1px solid var(--textlight);
   }
@@ -397,6 +404,7 @@ bottom: 40px;
     width: 90%;
     font-size: 1.5vw;
     margin: 0;
+    text-align: center;
   }
   
   .h4-tgcard {
@@ -447,30 +455,14 @@ bottom: 40px;
     place-items: center;
     width: 95%;
     margin: 0 auto;
-    height: 22%;
+    height: 17%;
     border: 1px solid var(--textlight);
     border-bottom: none;
     color: black;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     background-color: var(--chart);
   }
-  
-  .home-report-data:first-of-type {
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
-  }
-  
-  .home-report-data:last-of-type {
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-  }
-  .home-report-data:last-child {
-    border-bottom:  1px solid var(--textlight);
-  }
-  
-  .home-report-data p{
-   font-weight: bolder;
-  }
+
   .home-hero-body{
     height: 100%;
   }
@@ -587,10 +579,11 @@ bottom: 40px;
   .trgt-gl {
     display: flex;
     flex-direction: column;
-    align-items: baseline;
+    align-items: center;
     gap: 10px;
     width: 80%;
     height: 35vh;
+    padding: 10px;
   }
   
   .trgt-gl-wrpr {
@@ -599,6 +592,7 @@ bottom: 40px;
     display: flex;
     flex-direction: column;
     gap: 100px;
+    align-items: center;
   }
   
   .trgt-gl-wrpr::-webkit-scrollbar {
@@ -608,7 +602,10 @@ bottom: 40px;
     color: rgb(0 223 90);
     font-weight: bold;
     font-size: large;
+    text-align: center;
+    margin: 0 auto;
   }
+
   
   .trgt-gl span:nth-child(6) {
     color: rgb(0, 202, 209);
@@ -623,5 +620,21 @@ bottom: 40px;
 
   .menu {
     grid-row: 1/4;
+  }
+  .home-report-data:nth-child(2) {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+  
+  .home-report-data:last-of-type {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  .home-report-data:last-child {
+    border-bottom:  1px solid var(--textlight);
+  }
+  
+  .home-report-data p{
+   font-weight: bolder;
   }
 }

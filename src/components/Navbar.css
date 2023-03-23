@@ -10,13 +10,13 @@
   
   .nav-logo{
     display: grid;
-    grid-template-columns: 75px 125px;
+    grid-template-columns: 65px 135px;
     grid-template-rows: 100px;
     border-bottom: 1px solid black;
   }
   
   .nav-logo img {
-    width: 90px;
+    width: 70px;
     height: 90px;
     object-fit: contain;
   }
@@ -165,13 +165,14 @@
 
 .nav-logo{
   display: grid;
-  grid-template-columns: 7vw 1fr;
+  grid-template-columns: 6vw 1fr;
   grid-template-rows: 140px;
 }
 
 .nav-logo img {
-    width: 50%;
-      height: 2.8vw;
+  width: 60%;
+  height: 2.8vw;
+  object-position: -10px;
 }
 
 .nav-logo h3 {
@@ -212,6 +213,7 @@
   width: 40%;
   justify-content: center;
   font-size: 1.3vw;
+  font-weight: bold;
   display: flex;
   align-items: center;
   height: 40px;
