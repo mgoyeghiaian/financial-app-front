@@ -40,6 +40,7 @@ const Users = () => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
     setAdmin(latest1);
+    loadAdmins();
   };
 
   const deleteAdmin = async (id) => {
